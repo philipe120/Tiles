@@ -24,10 +24,10 @@ function left(a,b,c){
     }
 
     if (!checkarray(line)){
-        //printdebug(line);
+        //console.log(line);
     }else {
         num = calculatearray(line,c);
-        printdebug(num);
+        console.log(num);
     }
 
     if (num !=false){
@@ -59,10 +59,10 @@ function right(a,b,c){
     }
 
     if (!checkarray(line)){
-        //printdebug(line);
+        //console.log(line);
     }else {
         num = calculatearray(line,c);
-        printdebug(num);
+        console.log(num);
     }
 
     if (num !=false){
@@ -106,7 +106,6 @@ function checkarray(line){
 }
 
 function calculatearray(line,c){
-//printdebug("aaaaaaa");
     for(k=1;k<=line.length-1;k++){
         if (line[k]=='grey'){
             return false;
