@@ -11,6 +11,7 @@ a=4;
 b=6;
 c=1;
 
+/*
 function left(a,b,c){
     line=[];
     c=cword(c);
@@ -24,33 +25,38 @@ function left(a,b,c){
     }
 
     if (!checkarray(line)){
-        //console.log(line);
+        //printdebug(line);
     }else {
         num = calculatearray(line,c);
-        console.log(num);
+        printdebug(num);
     }
 
     if (num !=false){
         for (y=b;y>=1;y--){
-            if (num>=0){
-                document.getElementById(`row${a},column${y}`).className = c;
-                num--;
-            }else{
-                break;
-            }
+            if (temp<=num){
+				if (temp == 0){
+					temp++;
+					continue;
+				}else{
+					temp++;
+					document.getElementById(`row${a},column${y}`).className = c;
+				}
+			}else{
+				break;
+			}
         }
         turn++;
     }
     document.getElementById("temp2").innerHTML = line;
 }
+*/
 
 
-/*
 function right(a,b,c){
     line=[];
     c=cword(c);
-///////////////////////////fix////////////////////////////////////
-    for (y=b;y>=1;y--){
+
+    for (y=b;y<=8;y++){
         element = document.getElementById(`row${a},column${y}`);
         element.classList.remove("white_hover");
         element.classList.remove("black_hover");
@@ -59,34 +65,39 @@ function right(a,b,c){
     }
 
     if (!checkarray(line)){
-        //console.log(line);
+        //printdebug(line);
     }else {
         num = calculatearray(line,c);
-        console.log(num);
+        printdebug(num);
     }
 
     if (num !=false){
-        for (y=b;y>=1;y--){
-            if (c=="black"){
-                if (num>=0){
-                    document.getElementById(`row${a},column${y}`).className = "black";
-                    num--;
-                }else{
-                    break;
-                }
-            }else if (c=="white"){
-                if (num>=0){
-                    document.getElementById(`row${a},column${y}`).className = "white";
-                    num--;
-                }else{
-                    break;
-                }
-            }
+		temp = 0;
+        for (y=b;y<=8;y++){
+            if (temp<=num){
+				if (temp == 0){
+					temp++;
+					continue;
+				}else{
+					temp++;
+					document.getElementById(`row${a},column${y}`).className = c;
+				}
+			}else{
+				break;
+			}
         }
         turn++;
     }
+    document.getElementById("temp2").innerHTML = line;
 }
-*/
+
+
+
+
+///////////////////////////fix////////////////////////////////////
+
+
+
 
 
 
@@ -106,6 +117,7 @@ function checkarray(line){
 }
 
 function calculatearray(line,c){
+//printdebug("aaaaaaa");
     for(k=1;k<=line.length-1;k++){
         if (line[k]=='grey'){
             return false;
