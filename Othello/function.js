@@ -37,7 +37,7 @@ function mouseon(a,b){
     }else{
     element = document.getElementById(`row${a},column${b}`);
     element.classList.add("white_hover");
-    console.log(a+'\n'+b);
+    //writedebug(a,b);
     }
 }
 
@@ -47,18 +47,36 @@ function mouseoff(a,b){
     }else{
     element = document.getElementById(`row${a},column${b}`);
     element.classList.remove("white_hover");
-    console.log(a+'\n'+b);
+    //writedebug(a,b);
     }
 }
 
 function mouseclick(a,b){
-    // if (check(a,b)){
+	
 
-    // }
     
-    left(a,b,turn);
-    right(a,b,turn);
+    //left(a,b,turn,num);
+    right(a,b,turn,num);
+
 
     // clicked = true;
-    console.log(a+'\n'+b);
+    writedebug(a,b);
+}
+
+
+
+
+
+
+
+
+
+
+
+function writedebug(a,b){
+    document.getElementById("temp").innerHTML = `${a} and ${b}`;
+}
+
+function printdebug(a){
+    document.getElementById("temp1").innerHTML = a;
 }
