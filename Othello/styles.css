@@ -1,0 +1,33 @@
+table,td{
+	border: 1px solid black;
+	
+}
+
+td{
+	width : 4.5vw;
+	height : 4.5vw;
+}
+
+td.grey{
+    background-color : #999999 ;
+}
+
+td.white{
+	background-color: #ffffff;
+}
+
+td.black{
+	background-color : #000000;
+}
+
+td.black_hover{
+	background-color : #222222;
+}
+
+td.white_hover{
+	background-color : #dddddd;
+}
+
+td.panic{
+	background-color : #ff0000;
+}
