@@ -36,47 +36,19 @@ function mouseon(a,b){
 
     }else{
     element = document.getElementById(`row${a},column${b}`);
-    element.classList.add("white_hover");
-    //writedebug(a,b);
-    }
-}
-
-function mouseoff(a,b){
-    if (clicked){
-
-    }else{
-    element = document.getElementById(`row${a},column${b}`);
     element.classList.remove("white_hover");
-    //writedebug(a,b);
+    console.log(a+'\n'+b);
     }
 }
 
 function mouseclick(a,b){
+    // if (check(a,b)){
 	
+    // }
 
-    
-    //left(a,b,turn,num);
-    right(a,b,turn,num);
-
+    left(a,b,turn);
+    right(a,b,turn);
 
     // clicked = true;
-    writedebug(a,b);
-}
-
-
-
-
-
-
-
-
-
-
-
-function writedebug(a,b){
-    document.getElementById("temp").innerHTML = `${a} and ${b}`;
-}
-
-function printdebug(a){
-    document.getElementById("temp1").innerHTML = a;
+    console.log(a+'\n'+b);
 }
