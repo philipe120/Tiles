@@ -52,12 +52,18 @@ function mouseoff(a,b){
 }
 
 function mouseclick(a,b){
-	
+
 
     
     //left(a,b,turn);
     right(a,b,turn);
 
+
+
+    //writeself(a,b,turn);
+        turn++;
+
+    
 
     // clicked = true;
     writedebug(a,b);

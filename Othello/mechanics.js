@@ -7,9 +7,7 @@
 //x,y are temporary variables to be used in the for statements
 //
 //
-a=4;
-b=6;
-c=1;
+
 
 /*
 function left(a,b,c){
@@ -24,12 +22,7 @@ function left(a,b,c){
         line.push(temp);
     }
 
-    if (!checkarray(line)){
-        //printdebug(line);
-    }else {
-        num = calculatearray(line,c);
-        printdebug(num);
-    }
+    num = legalmove(line,c);
 
     if (num !=false){
         for (y=b;y>=1;y--){
@@ -45,7 +38,6 @@ function left(a,b,c){
 				break;
 			}
         }
-        turn++;
     }
     document.getElementById("temp2").innerHTML = line;
 }
@@ -64,12 +56,7 @@ function right(a,b,c){
         line.push(temp);
     }
 
-    if (!checkarray(line)){
-        //printdebug(line);
-    }else {
-        num = calculatearray(line,c);
-        printdebug(num);
-    }
+    num = legalmove(line,c);
 
     if (num !=false){
 		temp = 0;
@@ -86,10 +73,10 @@ function right(a,b,c){
 				break;
 			}
         }
-        turn++;
     }
     document.getElementById("temp2").innerHTML = line;
 }
+
 
 
 
@@ -104,7 +91,35 @@ function right(a,b,c){
 
 
 
+
+function writeself(a,b,c){
+    c=cword(c);
+    document.getElementById(`row${a},column${b}`).className = c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //array stuff
+
+function legalmove(line,c){
+
+    if (!checkarray(line)){
+    }else {
+        return calculatearray(line,c);
+    }
+}
 
 function checkarray(line){
 
