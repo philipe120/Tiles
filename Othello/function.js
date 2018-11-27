@@ -55,8 +55,8 @@ function mouseclick(a,b){
 	
 
     
-    //left(a,b,turn,num);
-    right(a,b,turn,num);
+    //left(a,b,turn);
+    right(a,b,turn);
 
 
     // clicked = true;
