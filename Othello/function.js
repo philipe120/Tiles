@@ -1,26 +1,26 @@
-window.clicked=false;
-window.started=false;
-window.turn = 1;
-window.addturn = false;
+let clicked = false;
+let started = false;
+let turn = 1;
+let addturn = false;
 
-function start(){
+function start() {
+    if (!started) {
+        let grid = "<table><tr>";
 
-    if (!started){
-
-        grid = "<table><tr>";
-        for(x=1;x<=8;x++){
-            for(y=1;y<=8;y++){
-                grid = grid + `<td class='grey' onmouseover='mouseon(${x},${y})' onmouseout='mouseoff(${x},${y})' 
+        for (let x = 1; x <= 8; x++) {
+            for (let y = 1; y <= 8; y++) {
+                grid += `<td class='grey' onmouseover='mouseon(${x},${y})' onmouseout='mouseoff(${x},${y})' 
                 onclick = 'mouseclick(${x},${y})' id = 'row${x},column${y}'></td>`;
             }
-            if (x!=8){
-                grid = grid+`</tr id = 'row${x}'><tr>`;
+            if (x != 8) {
+                grid += `</tr id = 'row${x}'><tr>`;
             }
         }
-        grid = grid + "</tr></table>";
-        
+
+        grid += "</tr></table>";
+
         document.getElementById("demo").innerHTML = grid;
-        started=true;
+        started = true;
 
         document.getElementById(`row4,column4`).className = "white";
         document.getElementById(`row5,column5`).className = "white";
@@ -29,59 +29,31 @@ function start(){
     }
 }
 
+function mouseon(a, b) {
+    if (clicked) {
 
-function mouseon(a,b){
-    if (clicked){
-
-    }else{
-    element = document.getElementById(`row${a},column${b}`);
-    element.classList.add("white_hover");
-
+    } else {
+        let element = document.getElementById(`row${a},column${b}`);
+        element.classList.add("white_hover");
     }
 }
 
-function mouseoff(a,b){
-    if (clicked){
+function mouseoff(a, b) {
+    if (clicked) {
 
-    }else{
-    element = document.getElementById(`row${a},column${b}`);
-    element.classList.remove("white_hover");
-
+    } else {
+        let element = document.getElementById(`row${a},column${b}`);
+        element.classList.remove("white_hover");
+        console.log(a + '\n' + b);
     }
 }
 
-function mouseclick(a,b){
-
-
-    
-    left(a,b,turn);
-    //right(a,b,turn);
-    //up(a,b,turn);
-    //down(a,b,turn);
-
-    //writeself(a,b,turn);
-    
-    if (addturn){
+function mouseclick(a, b) {
+    left(a, b, turn);
+    right(a, b, turn);
+    // clicked = true;
+    if (addturn) {
         turn++;
     }
-
-
-    // clicked = true;
-    writedebug(a,b);
+    console.log(a + '\n' + b);
 }
-
-
-
-
-
-
-
-
-
-
-
-function writedebug(a,b){
-    document.getElementById("temp").innerHTML = `${a} and ${b}`;
-}
-
-
