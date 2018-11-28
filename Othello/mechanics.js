@@ -1,6 +1,7 @@
 // a=row
 // b=column
-// c=turn
+// c=turn number
+// cword = color associated with the word
 // odd=white,even=black
 //
 //f,g are temporary variables to be used in the function
@@ -9,10 +10,10 @@
 //
 
 
-/*
+
 function left(a,b,c){
     line=[];
-    c=cword(c);
+    cwords=cword(c);
 
     for (y=b;y>=1;y--){
         element = document.getElementById(`row${a},column${y}`);
@@ -22,10 +23,22 @@ function left(a,b,c){
         line.push(temp);
     }
 
-    num = legalmove(line,c);
+    num = legalmove(line,cwords);
 
     if (num !=false){
         for (y=b;y>=1;y--){
+            element = document.getElementById(`row${a},column${y}`).className;
+            if (element == cword(c)){
+                console.log("break");
+                break;
+            }else if (element == cword(c+1)){
+                console.log("set");
+                document.getElementById(`row${a},column${y}`).className = cword(c);
+            }else if (element == "grey"){
+                console.log("grey");
+            }else {
+                console.log("error");
+            }/*
             if (temp<=num){
 				if (temp == 0){
 					temp++;
@@ -36,17 +49,20 @@ function left(a,b,c){
 				}
 			}else{
 				break;
-			}
+            }
+            */
         }
+        addturn = true;
     }
+    //document.getElementById("temp1").innerHTML = num;
     document.getElementById("temp2").innerHTML = line;
 }
-*/
+
 
 
 function right(a,b,c){
     line=[];
-    c=cword(c);
+    cwords=cword(c);
 
     for (y=b;y<=8;y++){
         element = document.getElementById(`row${a},column${y}`);
@@ -73,15 +89,87 @@ function right(a,b,c){
 				break;
 			}
         }
+        addturn = true;
     }
+    document.getElementById("temp1").innerHTML = num;
+    document.getElementById("temp2").innerHTML = line;
+}
+
+///////////////////////////fix////////////////////////////////////
+/* ///////////////////can't print properly///////////////
+
+
+function up(a,b,c){
+    line=[];
+    c=cword(c);
+
+    for (x=a;x>=1;x--){
+        element = document.getElementById(`row${x},column${b}`);
+        element.classList.remove("white_hover");
+        element.classList.remove("black_hover");
+        temp = element.className;
+        line.push(temp);
+    }
+
+    num = legalmove(line,c);
+
+    if (num !=false){
+        for (x=a;x>=1;x--){
+            if (temp<=num){
+				if (temp == 0){
+					temp++;
+					continue;
+				}else{
+					temp++;
+					document.getElementById(`row${x},column${b}`).className = c;
+				}
+			}else{
+				break;
+			}
+        }
+        addturn = true;
+    }
+    document.getElementById("temp1").innerHTML = num;
     document.getElementById("temp2").innerHTML = line;
 }
 
 
 
+function down(a,b,c){
+    line=[];
+    c=cword(c);
 
+    for (x=a;x<=8;x++){
+        element = document.getElementById(`row${x},column${b}`);
+        element.classList.remove("white_hover");
+        element.classList.remove("black_hover");
+        temp = element.className;
+        line.push(temp);
+    }
 
-///////////////////////////fix////////////////////////////////////
+    num = legalmove(line,c);
+
+    if (num !=false){
+        for (x=a;x<=8;x++){
+            if (temp<=num){
+				if (temp == 0){
+					temp++;
+					continue;
+				}else{
+					temp++;
+					document.getElementById(`row${x},column${b}`).className = c;
+				}
+			}else{
+				break;
+			}
+        }
+        addturn = true;
+    }
+    document.getElementById("temp1").innerHTML = num;
+    document.getElementById("temp2").innerHTML = line;
+}
+*/
+
 
 
 
@@ -109,6 +197,16 @@ function writeself(a,b,c){
 
 
 
+
+function cword(c){
+    if (c%2==1){
+        return "white";
+    }else if(c%2==0){
+        return "black";
+    }else {
+        return "panic";
+    }
+}
 
 
 //array stuff
@@ -147,15 +245,5 @@ function calculatearray(line,c){
                 }
             }
         }
-    }
-}
-
-function cword(c){
-    if (c%2==1){
-        return "white";
-    }else if(c%2==0){
-        return "black";
-    }else {
-        return "panic";
     }
 }

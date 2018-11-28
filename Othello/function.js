@@ -1,13 +1,13 @@
 window.clicked=false;
 window.started=false;
 window.turn = 1;
+window.addturn = false;
 
 function start(){
 
     if (!started){
+
         grid = "<table><tr>";
-
-
         for(x=1;x<=8;x++){
             for(y=1;y<=8;y++){
                 grid = grid + `<td class='grey' onmouseover='mouseon(${x},${y})' onmouseout='mouseoff(${x},${y})' 
@@ -17,7 +17,6 @@ function start(){
                 grid = grid+`</tr id = 'row${x}'><tr>`;
             }
         }
-
         grid = grid + "</tr></table>";
         
         document.getElementById("demo").innerHTML = grid;
@@ -37,7 +36,7 @@ function mouseon(a,b){
     }else{
     element = document.getElementById(`row${a},column${b}`);
     element.classList.add("white_hover");
-    //writedebug(a,b);
+
     }
 }
 
@@ -47,7 +46,7 @@ function mouseoff(a,b){
     }else{
     element = document.getElementById(`row${a},column${b}`);
     element.classList.remove("white_hover");
-    //writedebug(a,b);
+
     }
 }
 
@@ -55,15 +54,17 @@ function mouseclick(a,b){
 
 
     
-    //left(a,b,turn);
-    right(a,b,turn);
-
-
+    left(a,b,turn);
+    //right(a,b,turn);
+    //up(a,b,turn);
+    //down(a,b,turn);
 
     //writeself(a,b,turn);
-        turn++;
-
     
+    if (addturn){
+        turn++;
+    }
+
 
     // clicked = true;
     writedebug(a,b);
@@ -83,6 +84,4 @@ function writedebug(a,b){
     document.getElementById("temp").innerHTML = `${a} and ${b}`;
 }
 
-function printdebug(a){
-    document.getElementById("temp1").innerHTML = a;
-}
+
