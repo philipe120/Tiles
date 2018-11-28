@@ -31,7 +31,7 @@ function start() {
 
 function mouseon(a, b) {
     if (clicked) {
-
+        //do nothing
     } else {
         let element = document.getElementById(`row${a},column${b}`);
         element.classList.add("white_hover");
@@ -44,7 +44,7 @@ function mouseoff(a, b) {
     } else {
         let element = document.getElementById(`row${a},column${b}`);
         element.classList.remove("white_hover");
-        console.log(a + '\n' + b);
+        //console.log(a + '\n' + b);
     }
 }
 
@@ -54,6 +54,7 @@ function mouseclick(a, b) {
     // clicked = true;
     if (addturn) {
         turn++;
+        addturn = false;
     }
-    console.log(a + '\n' + b);
+    //console.log(a + '\n' + b);
 }
