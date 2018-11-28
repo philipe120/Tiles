@@ -30,7 +30,7 @@ function start() {
 
 function mouseon(a, b) {
     if (clicked) {
-
+        //do nothing
     } else {
         let element = document.getElementById(`row${a},column${b}`);
         element.classList.add("white_hover");

@@ -1,6 +1,6 @@
-let a = 4; // row
-let b = 6; // column
-let c = 1; // turn (odd=white, even=black)
+// a,x,j are row variables
+// b,y,k are column variables
+// turn (odd=white, even=black)
 
 function left(a, b, c) {
     let line = [];
