@@ -4,7 +4,6 @@
 
 function left(a, b, c) {
     let line = [];
-    let cwords = cword(c); // returns colour associated with word
 
     for (let y = b; y >= 1; y--) {
         let element = document.getElementById(`row${a},column${y}`);
@@ -13,7 +12,7 @@ function left(a, b, c) {
         line.push(element.className);
     }
 
-    console.log(line)
+    console.log(line);
 
     let num = calculatearray(line, c);
 
@@ -36,22 +35,19 @@ function left(a, b, c) {
         }
         addturn = true;
     }
-
 }
 
 function right(a, b, c) {
     let line = [];
-    cwords = cword(c);
 
     for (let y = b; y <= 8; y++) {
         let element = document.getElementById(`row${a},column${y}`);
         element.classList.remove("white_hover");
         element.classList.remove("black_hover");
-        let temp = element.className;
-        line.push(temp);
+        line.push(element.className);
     }
 
-    console.log(line)
+    console.log(line);
 
     let num = calculatearray(line, c);
 
@@ -82,72 +78,66 @@ function right(a, b, c) {
 
 function up(a,b,c){
     line=[];
-    c=cword(c);
 
     for (x=a;x>=1;x--){
         element = document.getElementById(`row${x},column${b}`);
         element.classList.remove("white_hover");
         element.classList.remove("black_hover");
-        temp = element.className;
-        line.push(temp);
+        line.push(element.className);
     }
 
     num = calculatearray(line,c);
 
     if (num !=false){
         for (x=a;x>=1;x--){
-            if (temp<=num){
-				if (temp == 0){
-					temp++;
-					continue;
-				}else{
-					temp++;
-					document.getElementById(`row${x},column${b}`).className = c;
-				}
-			}else{
-				break;
-			}
+            let element = document.getElementById(`row${a},column${y}`).className;
+            if (element == cword(c)) {
+                //console.log("break");
+                break;
+            } else if (element == cword(c + 1)) {
+                //console.log("set");
+                document.getElementById(`row${a},column${y}`).className = cword(c);
+            } else if (element == "grey") {
+                //console.log("grey");
+            } else {
+                //console.log("error");
+            }
         }
         addturn = true;
     }
-    document.getElementById("temp1").innerHTML = num;
-    document.getElementById("temp2").innerHTML = line;
 }
 
 
 
 function down(a,b,c){
     line=[];
-    c=cword(c);
 
     for (x=a;x<=8;x++){
         element = document.getElementById(`row${x},column${b}`);
         element.classList.remove("white_hover");
         element.classList.remove("black_hover");
-        temp = element.className;
-        line.push(temp);
+        line.push(element.className);
     }
 
     num = calculatearray(line,c);
 
     if (num !=false){
         for (x=a;x<=8;x++){
-            if (temp<=num){
-				if (temp == 0){
-					temp++;
-					continue;
-				}else{
-					temp++;
-					document.getElementById(`row${x},column${b}`).className = c;
-				}
-			}else{
-				break;
-			}
+            let element = document.getElementById(`row${a},column${y}`).className;
+            if (element == cword(c)) {
+                //console.log("break");
+                break;
+            } else if (element == cword(c + 1)) {
+                //console.log("set");
+                document.getElementById(`row${a},column${y}`).className = cword(c);
+            } else if (element == "grey") {
+                //console.log("grey");
+            } else {
+                //console.log("error");
+            }
         }
         addturn = true;
     }
-    document.getElementById("temp1").innerHTML = num;
-    document.getElementById("temp2").innerHTML = line;
 }
 */
 
