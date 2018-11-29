@@ -13,9 +13,7 @@ function left(a, b, c) {
     }
 
     console.log(line);
-
     let num = calculatearray(line, c);
-
     console.log(num);
     
     if (num != false) {
@@ -48,9 +46,7 @@ function right(a, b, c) {
     }
 
     console.log(line);
-
     let num = calculatearray(line, c);
-
     console.log(num);
 
     if (num != false) {
@@ -73,7 +69,8 @@ function right(a, b, c) {
 }
 
 ///////////////////////////fix////////////////////////////////////
-/* ///////////////////can't print properly///////////////
+
+
 
 
 function up(a,b,c){
@@ -86,17 +83,19 @@ function up(a,b,c){
         line.push(element.className);
     }
 
-    num = calculatearray(line,c);
+    console.log(line);
+    let num = calculatearray(line, c);
+    console.log(num);
 
     if (num !=false){
         for (x=a;x>=1;x--){
-            let element = document.getElementById(`row${a},column${y}`).className;
+            let element = document.getElementById(`row${x},column${b}`).className;
             if (element == cword(c)) {
                 //console.log("break");
                 break;
             } else if (element == cword(c + 1)) {
                 //console.log("set");
-                document.getElementById(`row${a},column${y}`).className = cword(c);
+                document.getElementById(`row${x},column${b}`).className = cword(c);
             } else if (element == "grey") {
                 //console.log("grey");
             } else {
@@ -119,17 +118,19 @@ function down(a,b,c){
         line.push(element.className);
     }
 
-    num = calculatearray(line,c);
+    console.log(line);
+    let num = calculatearray(line, c);
+    console.log(num);
 
     if (num !=false){
         for (x=a;x<=8;x++){
-            let element = document.getElementById(`row${a},column${y}`).className;
+            let element = document.getElementById(`row${x},column${b}`).className;
             if (element == cword(c)) {
                 //console.log("break");
                 break;
             } else if (element == cword(c + 1)) {
                 //console.log("set");
-                document.getElementById(`row${a},column${y}`).className = cword(c);
+                document.getElementById(`row${x},column${b}`).className = cword(c);
             } else if (element == "grey") {
                 //console.log("grey");
             } else {
@@ -139,7 +140,7 @@ function down(a,b,c){
         addturn = true;
     }
 }
-*/
+
 
 function writeself(a, b, c) {
     c = cword(c);

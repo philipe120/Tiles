@@ -49,8 +49,12 @@ function mouseoff(a, b) {
 }
 
 function mouseclick(a, b) {
+
     left(a, b, turn);
     right(a, b, turn);
+    up(a, b, turn);
+    down(a, b, turn);
+
     // clicked = true;
     if (addturn) {
         turn++;
