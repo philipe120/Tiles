@@ -16,7 +16,7 @@ function left(a, b, c) {
     let num = calculatearray(line, c);
     console.log(num);
     
-    if (num != false) {
+    if (num == true){
         for (let y = b; y >= 1; y--) {
             let element = document.getElementById(`row${a},column${y}`).className;
             if (element == cword(c)) {
@@ -49,7 +49,7 @@ function right(a, b, c) {
     let num = calculatearray(line, c);
     console.log(num);
 
-    if (num != false) {
+    if (num == true){
         for (let y = b; y <= 8; y++) {
             let element = document.getElementById(`row${a},column${y}`).className;
             if (element == cword(c)) {
@@ -87,7 +87,7 @@ function up(a,b,c){
     let num = calculatearray(line, c);
     console.log(num);
 
-    if (num !=false){
+    if (num == true){
         for (x=a;x>=1;x--){
             let element = document.getElementById(`row${x},column${b}`).className;
             if (element == cword(c)) {
@@ -122,7 +122,7 @@ function down(a,b,c){
     let num = calculatearray(line, c);
     console.log(num);
 
-    if (num !=false){
+    if (num == true){
         for (x=a;x<=8;x++){
             let element = document.getElementById(`row${x},column${b}`).className;
             if (element == cword(c)) {
@@ -143,9 +143,15 @@ function down(a,b,c){
 
 
 function writeself(a, b, c) {
-    c = cword(c);
-    document.getElementById(`row${a},column${b}`).className = c;
+    document.getElementById(`row${a},column${b}`).className = cword(c);
 }
+
+
+
+
+
+
+
 
 function cword(c) {
     if (c % 2 == 1) {
@@ -160,14 +166,21 @@ function cword(c) {
 
 //check if the line is legal or not
 function calculatearray(line, c) {
-    for (k=1;k<=line.length-1;k++){
-        if (line[0] != 'grey'){
-            return false;
-        }else if (line[k]=='grey'){
-            return false;
-        }else if (line[k-1]==cword(c+1) && line[k]==cword(c)){
-            return true;
+    if (line.length>=2){
+        for (k=1;k<=line.length-1;k++){
+            if (line[0] != 'grey'){
+                //console.log("error1");
+                return false;
+            }else if (line[k-1]==cword(c+1) && line[k]==cword(c)){
+                //console.log("exit");
+                return true;
+            }else if (line[k]=='grey' || line[k]==cword(c)){
+                //console.log("error2");
+                return false;
+            }
         }
+    }else{
+        return false;
     }
 }
 

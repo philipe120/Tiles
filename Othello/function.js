@@ -5,8 +5,8 @@ let addturn = false;
 
 function start() {
     if (!started) {
+        
         let grid = "<table><tr>";
-
         for (let x = 1; x <= 8; x++) {
             for (let y = 1; y <= 8; y++) {
                 grid += `<td class='grey' onmouseover='mouseon(${x},${y})' onmouseout='mouseoff(${x},${y})' 
@@ -16,7 +16,6 @@ function start() {
                 grid += `</tr id = 'row${x}'><tr>`;
             }
         }
-
         grid += "</tr></table>";
 
         document.getElementById("demo").innerHTML = grid;
@@ -30,35 +29,39 @@ function start() {
 }
 
 function mouseon(a, b) {
-    if (clicked) {
-        //do nothing
-    } else {
+
+    if (turn%2==1){
         let element = document.getElementById(`row${a},column${b}`);
         element.classList.add("white_hover");
+    }else if (turn%2==0){
+        let element = document.getElementById(`row${a},column${b}`);
+        element.classList.add("black_hover");
     }
 }
 
 function mouseoff(a, b) {
-    if (clicked) {
 
-    } else {
-        let element = document.getElementById(`row${a},column${b}`);
-        element.classList.remove("white_hover");
-        //console.log(a + '\n' + b);
-    }
+    let element = document.getElementById(`row${a},column${b}`);
+    element.classList.remove("white_hover");
+    element.classList.remove("black_hover");
 }
 
 function mouseclick(a, b) {
 
     left(a, b, turn);
+    console.log(addturn);
     right(a, b, turn);
+    console.log(addturn);
     up(a, b, turn);
+    console.log(addturn);
     down(a, b, turn);
-
+    console.log(addturn);
+    
     // clicked = true;
     if (addturn) {
+        writeself(a, b, turn);
+        //reset stuff
         turn++;
         addturn = false;
     }
-    //console.log(a + '\n' + b);
 }
