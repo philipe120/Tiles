@@ -166,6 +166,7 @@ function upleft(a, b, c) {
     
     if (num == true){
         let check = a-b;
+        breakloop:
         for (let x = a;x >= 1;x--){
             for (let y = b; y >= 1; y--) {
                 let check2=x-y;
@@ -173,7 +174,7 @@ function upleft(a, b, c) {
                     let element = document.getElementById(`row${x},column${y}`).className;
                     if (element == cword(c)) {
                         //console.log("break");
-                        break;
+                        break breakloop;
                     } else if (element == cword(c + 1)) {
                         //console.log("set");
                         document.getElementById(`row${x},column${y}`).className = cword(c);
@@ -211,6 +212,7 @@ function upright(a, b, c) {
     
     if (num == true){
         let check = a+b;
+        breakloop:
         for (let x = a;x >= 1;x--){
             for (let y = b; y <= 8; y++) {
                 let check2=x+y;
@@ -218,7 +220,7 @@ function upright(a, b, c) {
                     let element = document.getElementById(`row${x},column${y}`).className;
                     if (element == cword(c)) {
                         //console.log("break");
-                        break;
+                        break breakloop;
                     } else if (element == cword(c + 1)) {
                         //console.log("set");
                         document.getElementById(`row${x},column${y}`).className = cword(c);
@@ -256,21 +258,22 @@ function downleft(a, b, c) {
     
     if (num == true){
         let check = a+b;
+        breakloop:
         for (let x = a;x <= 8;x++){
             for (let y = b; y >= 1; y--) {
                 let check2=x+y;
                 if (check == check2){
                     let element = document.getElementById(`row${x},column${y}`).className;
                     if (element == cword(c)) {
-                        //console.log("break");
-                        break;
+                        console.log("break");
+                        break breakloop;
                     } else if (element == cword(c + 1)) {
-                        //console.log("set");
+                        console.log("set");
                         document.getElementById(`row${x},column${y}`).className = cword(c);
                     } else if (element == "grey") {
-                        //console.log("grey");
+                        console.log("grey");
                     } else {
-                        //console.log("error");
+                        console.log("error");
                     }
                 }
             }
@@ -301,21 +304,22 @@ function downright(a, b, c) {
     
     if (num == true){
         let check = a-b;
+        breakloop:
         for (let x = a;x <= 8;x++){
             for (let y = b; y <= 8; y++) {
                 let check2=x-y;
                 if (check == check2){
                     let element = document.getElementById(`row${x},column${y}`).className;
                     if (element == cword(c)) {
-                        //console.log("break");
-                        break;
+                        console.log("break");
+                        break breakloop;
                     } else if (element == cword(c + 1)) {
-                        //console.log("set");
+                        console.log("set");
                         document.getElementById(`row${x},column${y}`).className = cword(c);
                     } else if (element == "grey") {
-                        //console.log("grey");
+                        console.log("grey");
                     } else {
-                        //console.log("error");
+                        console.log("error");
                     }
                 }
             }
