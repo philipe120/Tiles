@@ -49,13 +49,21 @@ function mouseoff(a, b) {
 function mouseclick(a, b) {
 
     left(a, b, turn);
-    console.log(addturn);
+    // console.log(addturn);
     right(a, b, turn);
-    console.log(addturn);
+    // console.log(addturn);
     up(a, b, turn);
-    console.log(addturn);
+    // console.log(addturn);
     down(a, b, turn);
-    console.log(addturn);
+    // console.log(addturn);
+    upleft(a, b, turn);
+
+    upright(a, b, turn);
+
+    downleft(a, b, turn);
+
+    downright(a, b, turn);
+
     
     // clicked = true;
     if (addturn) {

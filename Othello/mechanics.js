@@ -68,7 +68,7 @@ function right(a, b, c) {
     }
 }
 
-///////////////////////////fix////////////////////////////////////
+
 
 
 
@@ -141,14 +141,201 @@ function down(a,b,c){
     }
 }
 
+///////////////////////////fix////////////////////////////////////
 
-function writeself(a, b, c) {
-    document.getElementById(`row${a},column${b}`).className = cword(c);
+
+function upleft(a, b, c) {
+    let line = [];
+    let check = a-b;
+    for (let x = a;x >= 1;x--){
+        for (let y = b; y >= 1; y--) {
+            let check2=x-y;
+            if (check == check2){
+                let element = document.getElementById(`row${x},column${y}`);
+                element.classList.remove("white_hover");
+                element.classList.remove("black_hover");
+                line.push(element.className);
+            }
+        }
+    }
+
+    console.log(line);
+
+    let num = calculatearray(line, c);
+    console.log(num);
+    
+    if (num == true){
+        let check = a-b;
+        for (let x = a;x >= 1;x--){
+            for (let y = b; y >= 1; y--) {
+                let check2=x-y;
+                if (check == check2){
+                    let element = document.getElementById(`row${x},column${y}`).className;
+                    if (element == cword(c)) {
+                        //console.log("break");
+                        break;
+                    } else if (element == cword(c + 1)) {
+                        //console.log("set");
+                        document.getElementById(`row${x},column${y}`).className = cword(c);
+                    } else if (element == "grey") {
+                        //console.log("grey");
+                    } else {
+                        //console.log("error");
+                    }
+                }
+            }
+        }
+        addturn = true;
+    }
+}
+
+function upright(a, b, c) {
+    let line = [];
+    let check = a+b;
+    for (let x = a;x >= 1;x--){
+        for (let y = b; y <= 8; y++) {
+            let check2=x+y;
+            if (check == check2){
+                let element = document.getElementById(`row${x},column${y}`);
+                element.classList.remove("white_hover");
+                element.classList.remove("black_hover");
+                line.push(element.className);
+            }
+        }
+    }
+
+    console.log(line);
+
+    let num = calculatearray(line, c);
+    console.log(num);
+    
+    if (num == true){
+        let check = a+b;
+        for (let x = a;x >= 1;x--){
+            for (let y = b; y <= 8; y++) {
+                let check2=x+y;
+                if (check == check2){
+                    let element = document.getElementById(`row${x},column${y}`).className;
+                    if (element == cword(c)) {
+                        //console.log("break");
+                        break;
+                    } else if (element == cword(c + 1)) {
+                        //console.log("set");
+                        document.getElementById(`row${x},column${y}`).className = cword(c);
+                    } else if (element == "grey") {
+                        //console.log("grey");
+                    } else {
+                        //console.log("error");
+                    }
+                }
+            }
+        }
+        addturn = true;
+    }
+}
+
+function downleft(a, b, c) {
+    let line = [];
+    let check = a+b;
+    for (let x = a;x <= 8;x++){
+        for (let y = b; y >= 1; y--) {
+            let check2=x+y;
+            if (check == check2){
+                let element = document.getElementById(`row${x},column${y}`);
+                element.classList.remove("white_hover");
+                element.classList.remove("black_hover");
+                line.push(element.className);
+            }
+        }
+    }
+
+    console.log(line);
+
+    let num = calculatearray(line, c);
+    console.log(num);
+    
+    if (num == true){
+        let check = a+b;
+        for (let x = a;x <= 8;x++){
+            for (let y = b; y >= 1; y--) {
+                let check2=x+y;
+                if (check == check2){
+                    let element = document.getElementById(`row${x},column${y}`).className;
+                    if (element == cword(c)) {
+                        //console.log("break");
+                        break;
+                    } else if (element == cword(c + 1)) {
+                        //console.log("set");
+                        document.getElementById(`row${x},column${y}`).className = cword(c);
+                    } else if (element == "grey") {
+                        //console.log("grey");
+                    } else {
+                        //console.log("error");
+                    }
+                }
+            }
+        }
+        addturn = true;
+    }
+}
+
+function downright(a, b, c) {
+    let line = [];
+    let check = a-b;
+    for (let x = a;x <= 8;x++){
+        for (let y = b; y <= 8; y++) {
+            let check2=x-y;
+            if (check == check2){
+                let element = document.getElementById(`row${x},column${y}`);
+                element.classList.remove("white_hover");
+                element.classList.remove("black_hover");
+                line.push(element.className);
+            }
+        }
+    }
+
+    console.log(line);
+
+    let num = calculatearray(line, c);
+    console.log(num);
+    
+    if (num == true){
+        let check = a-b;
+        for (let x = a;x <= 8;x++){
+            for (let y = b; y <= 8; y++) {
+                let check2=x-y;
+                if (check == check2){
+                    let element = document.getElementById(`row${x},column${y}`).className;
+                    if (element == cword(c)) {
+                        //console.log("break");
+                        break;
+                    } else if (element == cword(c + 1)) {
+                        //console.log("set");
+                        document.getElementById(`row${x},column${y}`).className = cword(c);
+                    } else if (element == "grey") {
+                        //console.log("grey");
+                    } else {
+                        //console.log("error");
+                    }
+                }
+            }
+        }
+        addturn = true;
+    }
 }
 
 
 
 
+
+
+
+
+
+
+function writeself(a, b, c) {
+    document.getElementById(`row${a},column${b}`).className = cword(c);
+}
 
 
 
@@ -189,5 +376,5 @@ function calculatearray(line, c) {
 //printing
 
 function printtogrid(j,k){
-
+    
 }
