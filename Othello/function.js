@@ -57,7 +57,7 @@ function mouseclick(a, b) {
     downleft(a, b, turn);
     downright(a, b, turn);
 
-    
+
     // clicked = true;
     if (addturn) {
         writeself(a, b, turn);
