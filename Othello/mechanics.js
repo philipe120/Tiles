@@ -6,10 +6,11 @@ function left(a, b, c) {
     let line = [];
 
     for (let y = b; y >= 1; y--) {
-        let element = document.getElementById(`row${a},column${y}`);
-        element.classList.remove("white_hover");
-        element.classList.remove("black_hover");
-        line.push(element.className);
+        // let element = document.getElementById(`row${a},column${y}`);
+        // element.classList.remove("white_hover");
+        // element.classList.remove("black_hover");
+        // line.push(element.className);
+        line = scanline(a,y,line);
     }
 
     console.log(line);
@@ -33,10 +34,7 @@ function right(a, b, c) {
     let line = [];
 
     for (let y = b; y <= 8; y++) {
-        let element = document.getElementById(`row${a},column${y}`);
-        element.classList.remove("white_hover");
-        element.classList.remove("black_hover");
-        line.push(element.className);
+        line = scanline(a,y,line);
     }
 
     console.log(line);
@@ -56,19 +54,11 @@ function right(a, b, c) {
     }
 }
 
-
-
-
-
-
 function up(a,b,c){
     line=[];
 
     for (x=a;x>=1;x--){
-        element = document.getElementById(`row${x},column${b}`);
-        element.classList.remove("white_hover");
-        element.classList.remove("black_hover");
-        line.push(element.className);
+        line = scanline(x,b,line);
     }
 
     console.log(line);
@@ -88,16 +78,11 @@ function up(a,b,c){
     }
 }
 
-
-
 function down(a,b,c){
     line=[];
 
     for (x=a;x<=8;x++){
-        element = document.getElementById(`row${x},column${b}`);
-        element.classList.remove("white_hover");
-        element.classList.remove("black_hover");
-        line.push(element.className);
+        line = scanline(x,b,line);
     }
 
     console.log(line);
@@ -117,16 +102,12 @@ function down(a,b,c){
     }
 }
 
-
 function upleft(a, b, c) {
     let line = [];
     for (let x = a;x >= 1;x--){
         for (let y = b; y >= 1; y--) {
             if (a-b == x-y){
-                let element = document.getElementById(`row${x},column${y}`);
-                element.classList.remove("white_hover");
-                element.classList.remove("black_hover");
-                line.push(element.className);
+                line = scanline(x,y,line);
             }
         }
     }
@@ -159,10 +140,7 @@ function upright(a, b, c) {
     for (let x = a;x >= 1;x--){
         for (let y = b; y <= 8; y++) {
             if (a+b == x+y){
-                let element = document.getElementById(`row${x},column${y}`);
-                element.classList.remove("white_hover");
-                element.classList.remove("black_hover");
-                line.push(element.className);
+                line = scanline(x,y,line);
             }
         }
     }
@@ -195,10 +173,7 @@ function downleft(a, b, c) {
     for (let x = a;x <= 8;x++){
         for (let y = b; y >= 1; y--) {
             if (a+b == x+y){
-                let element = document.getElementById(`row${x},column${y}`);
-                element.classList.remove("white_hover");
-                element.classList.remove("black_hover");
-                line.push(element.className);
+                line = scanline(x,y,line);
             }
         }
     }
@@ -231,10 +206,7 @@ function downright(a, b, c) {
     for (let x = a;x <= 8;x++){
         for (let y = b; y <= 8; y++) {
             if (a-b == x-y){
-                let element = document.getElementById(`row${x},column${y}`);
-                element.classList.remove("white_hover");
-                element.classList.remove("black_hover");
-                line.push(element.className);
+                line = scanline(x,y,line);
             }
         }
     }
@@ -294,3 +266,17 @@ function calculatearray(line, c) {
         return false;
     }
 }
+
+
+function scanline(j,k,line){
+    let element = document.getElementById(`row${j},column${k}`);
+    element.classList.remove("white_hover");
+    element.classList.remove("black_hover");
+    line.push(element.className);
+    return line;
+}
+
+// function printline(){
+
+
+// }
