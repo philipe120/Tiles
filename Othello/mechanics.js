@@ -4,12 +4,7 @@
 
 function left(a, b, c) {
     let line = [];
-
     for (let y = b; y >= 1; y--) {
-        // let element = document.getElementById(`row${a},column${y}`);
-        // element.classList.remove("white_hover");
-        // element.classList.remove("black_hover");
-        // line.push(element.className);
         line = scanline(a,y,line);
     }
 
@@ -32,7 +27,6 @@ function left(a, b, c) {
 
 function right(a, b, c) {
     let line = [];
-
     for (let y = b; y <= 8; y++) {
         line = scanline(a,y,line);
     }
@@ -56,7 +50,6 @@ function right(a, b, c) {
 
 function up(a,b,c){
     line=[];
-
     for (x=a;x>=1;x--){
         line = scanline(x,b,line);
     }
@@ -80,7 +73,6 @@ function up(a,b,c){
 
 function down(a,b,c){
     line=[];
-
     for (x=a;x<=8;x++){
         line = scanline(x,b,line);
     }
