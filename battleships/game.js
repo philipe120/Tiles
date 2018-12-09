@@ -1,9 +1,13 @@
 function genGrid() {
-    let grid = "<table class='container-fluid'><tbody>";
-    for (let i = 1; i <= 10; i++) {
-        grid += "<tr>";
-        for (let x = 1; x <= 10; x++) {
-            grid += "<td></td>";
+    // deletes the launch button and its containing row
+    $('.row').remove();
+
+    // creates an x by y table
+    let grid = "<table class='container-fluid' id='battlefield'><tbody>";
+    for (let y = 9; y >= 0; y--) {
+        grid += `<tr class='y${y}'>`;
+        for (let x = 0; x <= 9; x++) {
+            grid += `<td class='x${x}'></td>`;
         }
         grid += "</tr>";
     }
@@ -14,4 +18,5 @@ function genGrid() {
 
 $(document).ready(function () {
     $('#launch').click(genGrid);
+    //$(grid).mouseover(gridDetect);
 });
