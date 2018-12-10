@@ -47,8 +47,9 @@ function mouseoff(a, b) {
 }
 
 function mouseclick(a, b) {
-    scangrid();
+    
     left(a, b, turn);
+    scangrid(turn);
     right(a, b, turn);
     up(a, b, turn);
     down(a, b, turn);

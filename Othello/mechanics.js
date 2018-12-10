@@ -8,9 +8,7 @@ function left(a, b, c) {
         line = scanline(a,y,line);
     }
 
-    console.log(line);
     let num = calculatearray(line, c);
-    console.log(num);
     
     if (num == true){
         for (let y = b; y >= 1; y--) {
@@ -31,9 +29,7 @@ function right(a, b, c) {
         line = scanline(a,y,line);
     }
 
-    console.log(line);
     let num = calculatearray(line, c);
-    console.log(num);
 
     if (num == true){
         for (let y = b; y <= 8; y++) {
@@ -54,9 +50,7 @@ function up(a,b,c){
         line = scanline(x,b,line);
     }
 
-    console.log(line);
     let num = calculatearray(line, c);
-    console.log(num);
 
     if (num == true){
         for (x=a;x>=1;x--){
@@ -77,9 +71,7 @@ function down(a,b,c){
         line = scanline(x,b,line);
     }
 
-    console.log(line);
     let num = calculatearray(line, c);
-    console.log(num);
 
     if (num == true){
         for (x=a;x<=8;x++){
@@ -104,10 +96,7 @@ function upleft(a, b, c) {
         }
     }
 
-    console.log(line);
-
     let num = calculatearray(line, c);
-    console.log(num);
     
     if (num == true){
         breakloop:
@@ -137,10 +126,7 @@ function upright(a, b, c) {
         }
     }
 
-    console.log(line);
-
     let num = calculatearray(line, c);
-    console.log(num);
     
     if (num == true){
         breakloop:
@@ -170,10 +156,7 @@ function downleft(a, b, c) {
         }
     }
 
-    console.log(line);
-
     let num = calculatearray(line, c);
-    console.log(num);
     
     if (num == true){
         breakloop:
@@ -203,10 +186,7 @@ function downright(a, b, c) {
         }
     }
 
-    console.log(line);
-
     let num = calculatearray(line, c);
-    console.log(num);
     
     if (num == true){
         breakloop:
