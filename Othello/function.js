@@ -64,13 +64,15 @@ function mouseclick(a, b) {
         writeself(a, b, turn);
 
         turn++;
-        tempturn = turn;
         scangrid(turn);
         addturn = false;
         if (turn == "end"){
-            tempturn = cword(tempturn);
-            countgrid();
-            document.getElementById("legal").innerHTML = `${tempturn} wins!`;
+            winner = countgrid();
+            if (winner != "Tie"){
+                document.getElementById("legal").innerHTML = `${winner} wins!`;
+            }else{
+                document.getElementById("legal").innerHTML = `It is a tie!`;
+            }
         }
     }
 }

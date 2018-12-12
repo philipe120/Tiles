@@ -11,7 +11,6 @@ function scangrid(c){
         for (h=1;h<=8;h++){
             let a=g;
             let b=h;
-
             
             let line = [];
             for (let y = b; y >= 1; y--) {
@@ -48,12 +47,6 @@ function scangrid(c){
                 legalmove++;
                 continue;
             }
-
-
-
-            //diagonals
-
-
 
             line = [];
             for (let x = a;x >= 1;x--){
@@ -115,7 +108,27 @@ function scangrid(c){
 }
 
 function countgrid(){
-
-
+    let white = 0;
+    let black = 0;
     
+    for (a=1;a<=8;a++){
+        for (b=1;b<=8;b++){
+            let element = document.getElementById(`row${a},column${b}`);
+            element.classList.remove("white_hover");
+            element.classList.remove("black_hover");
+            if (element.className == "black"){
+                black ++;
+            }else if (element.className == "white"){
+                white ++;
+            }
+        }
+    }
+
+    if (white > black){
+        return "White";
+    }else if (white < black){
+        return "Black";
+    }else if (white == black){
+        return "Tie";
+    }
 }
