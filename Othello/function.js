@@ -30,7 +30,9 @@ function start() {
 
 function mouseon(a, b) {
 
-    if (turn%2==1){
+    if (turn == "end"){
+
+    }else if (turn%2==1){
         let element = document.getElementById(`row${a},column${b}`);
         element.classList.add("white_hover");
     }else if (turn%2==0){
@@ -44,12 +46,12 @@ function mouseoff(a, b) {
     let element = document.getElementById(`row${a},column${b}`);
     element.classList.remove("white_hover");
     element.classList.remove("black_hover");
+    element.classList.remove("panic");
 }
 
 function mouseclick(a, b) {
-    
+
     left(a, b, turn);
-    scangrid(turn);
     right(a, b, turn);
     up(a, b, turn);
     down(a, b, turn);
@@ -64,6 +66,7 @@ function mouseclick(a, b) {
         writeself(a, b, turn);
         //reset stuff
         turn++;
+        scangrid(turn);
         addturn = false;
     }
 }

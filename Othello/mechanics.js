@@ -227,11 +227,16 @@ function calculatearray(line, c) {
     if (line.length>=2){
         for (k=1;k<=line.length-1;k++){
             if (line[0] != 'grey'){
+                //console.log("grey");
                 return false;
             }else if (line[k-1]==cword(c+1) && line[k]==cword(c)){
+                //console.log("true");
                 return true;
             }else if (line[k]=='grey' || line[k]==cword(c)){
+                //console.log("end");
                 return false;
+            }else{
+                //console.log("skip");
             }
         }
     }else{
