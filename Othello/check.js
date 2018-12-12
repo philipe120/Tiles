@@ -113,3 +113,9 @@ function scangrid(c){
     }
     document.getElementById("legal").innerHTML = legalmove;
 }
+
+function countgrid(){
+
+
+    
+}

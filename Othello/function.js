@@ -60,13 +60,17 @@ function mouseclick(a, b) {
     downleft(a, b, turn);
     downright(a, b, turn);
 
-
-    // clicked = true;
     if (addturn) {
         writeself(a, b, turn);
-        //reset stuff
+
         turn++;
+        tempturn = turn;
         scangrid(turn);
         addturn = false;
+        if (turn == "end"){
+            tempturn = cword(tempturn);
+            countgrid();
+            document.getElementById("legal").innerHTML = `${tempturn} wins!`;
+        }
     }
 }
