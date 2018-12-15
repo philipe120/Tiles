@@ -16,7 +16,7 @@ function start() {
                 grid += `</tr id = 'row${x}'><tr>`;
             }
         }
-        grid += "</tr></table>";
+        grid += `</tr></table><button onclick="automove()">Auto Move</button>`;
 
         document.getElementById("demo").innerHTML = grid;
         started = true;

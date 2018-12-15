@@ -7,6 +7,8 @@ function scangrid(c){
     //run through all grey tiles and check if there are tiles to move
     // brute-force method
 
+    coordinates = [];
+    // coordinates.push();
     for (g=1;g<=8;g++){
         for (h=1;h<=8;h++){
             let a=g;
