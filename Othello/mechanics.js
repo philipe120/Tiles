@@ -9,7 +9,7 @@ function left(a, b, c) {
     }
 
     let num = calculatearray(line, c);
-    
+
     if (num == true){
         for (let y = b; y >= 1; y--) {
             let element = document.getElementById(`row${a},column${y}`).className;
@@ -27,9 +27,12 @@ function right(a, b, c) {
     let line = [];
     for (let y = b; y <= 8; y++) {
         line = scanline(a,y,line);
+        console.log(line);
     }
 
+
     let num = calculatearray(line, c);
+    console.log(num);
 
     if (num == true){
         for (let y = b; y <= 8; y++) {

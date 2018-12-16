@@ -1,4 +1,5 @@
 legalmove=4;
+coordinates = [];
 
 function scangrid(c){
     //return legal moves
@@ -8,7 +9,6 @@ function scangrid(c){
     // brute-force method
 
     coordinates = [];
-    // coordinates.push();
     for (g=1;g<=8;g++){
         for (h=1;h<=8;h++){
             let a=g;
@@ -20,6 +20,7 @@ function scangrid(c){
             }
             if (calculatearray(line, c)){
                 legalmove++;
+                coordinates.push(`${a},${b}`);
                 continue;
             }
 
@@ -29,6 +30,7 @@ function scangrid(c){
             }
             if (calculatearray(line, c)){
                 legalmove++;
+                coordinates.push(`${a},${b}`);
                 continue;
             }
 
@@ -38,6 +40,7 @@ function scangrid(c){
             }
             if (calculatearray(line, c)){
                 legalmove++;
+                coordinates.push(`${a},${b}`);
                 continue;
             }
 
@@ -47,6 +50,7 @@ function scangrid(c){
             }
             if (calculatearray(line, c)){
                 legalmove++;
+                coordinates.push(`${a},${b}`);
                 continue;
             }
 
@@ -60,6 +64,7 @@ function scangrid(c){
             }
             if (calculatearray(line, c)){
                 legalmove++;
+                coordinates.push(`${a},${b}`);
                 continue;
             }
 
@@ -73,6 +78,7 @@ function scangrid(c){
             }
             if (calculatearray(line, c)){
                 legalmove++;
+                coordinates.push(`${a},${b}`);
                 continue;
             }
 
@@ -86,6 +92,7 @@ function scangrid(c){
             }
             if (calculatearray(line, c)){
                 legalmove++;
+                coordinates.push(`${a},${b}`);
                 continue;
             }
 
@@ -99,6 +106,7 @@ function scangrid(c){
             }
             if (calculatearray(line, c)){
                 legalmove++;
+                coordinates.push(`${a},${b}`);
                 continue;
             }
         }
@@ -107,6 +115,7 @@ function scangrid(c){
         turn = "end";
     }
     document.getElementById("legal").innerHTML = legalmove;
+    document.getElementById("aaa").innerHTML = coordinates;
 }
 
 function countgrid(){
