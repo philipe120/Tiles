@@ -27,12 +27,9 @@ function right(a, b, c) {
     let line = [];
     for (let y = b; y <= 8; y++) {
         line = scanline(a,y,line);
-        console.log(line);
     }
 
-
     let num = calculatearray(line, c);
-    console.log(num);
 
     if (num == true){
         for (let y = b; y <= 8; y++) {

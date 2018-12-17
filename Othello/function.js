@@ -5,7 +5,6 @@ let addturn = false;
 
 function start() {
     if (!started) {
-        
         let grid = "<table><tr>";
         for (let x = 1; x <= 8; x++) {
             for (let y = 1; y <= 8; y++) {
@@ -16,7 +15,8 @@ function start() {
                 grid += `</tr id = 'row${x}'><tr>`;
             }
         }
-        grid += `</tr></table><button onclick="automove()">Auto Move</button>`;
+        grid += `</tr></table><button id = "automove" onclick="automove()">Auto Move</button>
+        <button onclick="reset()">Reset</button>`;
 
         document.getElementById("demo").innerHTML = grid;
         started = true;
@@ -51,7 +51,6 @@ function mouseoff(a, b) {
 
 function mouseclick(a, b) {
 
-
     left(a, b, turn);
     right(a, b, turn);
     up(a, b, turn);
@@ -68,6 +67,7 @@ function mouseclick(a, b) {
         scangrid(turn);
         addturn = false;
         if (turn == "end"){
+            stopmove()
             winner = countgrid();
             if (winner != "Tie"){
                 document.getElementById("legal").innerHTML = `${winner} wins!`;
