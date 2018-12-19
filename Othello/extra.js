@@ -1,7 +1,7 @@
 var myvar;
 
 function automove(){
-    myvar = setInterval(autofunction,300)
+    myvar = setInterval(autofunction,0)
     document.getElementById("automove").onclick = function(){stopmove()};
     document.getElementById("automove").innerHTML = "Stop Move";
 }
@@ -19,10 +19,11 @@ function stopmove(){
 
 function reset(){
 
+    stopmove();
+    turn=1;
     started = false;
     start();
     legalmove=4;
     coordinates = [[3,5],[5,3],[6,4],[4,6]];
-    stopmove();
 
 }

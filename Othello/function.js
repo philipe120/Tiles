@@ -74,6 +74,8 @@ function mouseclick(a, b) {
             }else{
                 document.getElementById("legal").innerHTML = `It is a tie!`;
             }
+            reset();
+            automove();
         }
     }
 }
