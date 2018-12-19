@@ -5,7 +5,6 @@ let addturn = false;
 
 function start() {
     if (!started) {
-        
         let grid = "<table><tr>";
         for (let x = 1; x <= 8; x++) {
             for (let y = 1; y <= 8; y++) {
@@ -16,7 +15,8 @@ function start() {
                 grid += `</tr id = 'row${x}'><tr>`;
             }
         }
-        grid += "</tr></table>";
+        grid += `</tr></table><button id = "automove" onclick="automove()">Auto Move</button>
+        <button onclick="reset()">Reset</button>`;
 
         document.getElementById("demo").innerHTML = grid;
         started = true;
@@ -30,7 +30,9 @@ function start() {
 
 function mouseon(a, b) {
 
-    if (turn%2==1){
+    if (turn == "end"){
+
+    }else if (turn%2==1){
         let element = document.getElementById(`row${a},column${b}`);
         element.classList.add("white_hover");
     }else if (turn%2==0){
@@ -44,6 +46,7 @@ function mouseoff(a, b) {
     let element = document.getElementById(`row${a},column${b}`);
     element.classList.remove("white_hover");
     element.classList.remove("black_hover");
+    element.classList.remove("panic");
 }
 
 function mouseclick(a, b) {
@@ -57,12 +60,22 @@ function mouseclick(a, b) {
     downleft(a, b, turn);
     downright(a, b, turn);
 
-    
-    // clicked = true;
     if (addturn) {
         writeself(a, b, turn);
-        //reset stuff
+
         turn++;
+        scangrid(turn);
         addturn = false;
+        if (turn == "end"){
+            stopmove()
+            winner = countgrid();
+            if (winner != "Tie"){
+                document.getElementById("legal").innerHTML = `${winner} wins!`;
+            }else{
+                document.getElementById("legal").innerHTML = `It is a tie!`;
+            }
+            reset();
+            automove();
+        }
     }
 }
