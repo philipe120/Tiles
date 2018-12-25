@@ -1,7 +1,7 @@
 var myvar;
 
 function automove(){
-    myvar = setInterval(autofunction,0)
+    myvar = setInterval(autofunction,1000)
     document.getElementById("automove").onclick = function(){stopmove()};
     document.getElementById("automove").innerHTML = "Stop Move";
 }
@@ -26,4 +26,22 @@ function reset(){
     legalmove=4;
     coordinates = [[3,5],[5,3],[6,4],[4,6]];
 
+}
+
+function AI(){
+    if (mode == "easy"){
+        setTimeout (autofunction,1000);
+    }
+    // else if (mode == "medium"){
+
+    // }
+    // else if (mode == "hard"){
+        
+    // }
+}
+
+function AIsetup(){
+
+    AImove = true;
+    
 }

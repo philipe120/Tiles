@@ -2,6 +2,7 @@ let clicked = false;
 let started = false;
 let turn = 1;
 let addturn = false;
+let AImove = false;
 
 function start() {
     if (!started) {
@@ -16,7 +17,7 @@ function start() {
             }
         }
         grid += `</tr></table><button id = "automove" onclick="automove()">Auto Move</button>
-        <button onclick="reset()">Reset</button>`;
+        <button onclick="reset()">Reset</button><button onclick="AIsetup()">I have no friends</button>`;
 
         document.getElementById("demo").innerHTML = grid;
         started = true;
@@ -67,15 +68,20 @@ function mouseclick(a, b) {
         scangrid(turn);
         addturn = false;
         if (turn == "end"){
-            stopmove()
+            
             winner = countgrid();
             if (winner != "Tie"){
                 document.getElementById("legal").innerHTML = `${winner} wins!`;
             }else{
                 document.getElementById("legal").innerHTML = `It is a tie!`;
             }
-            reset();
-            automove();
+
+            // stopmove();
+            // reset();
+            // automove();
+        }
+        if (turn%2==0 && AImove){
+            AI();
         }
     }
 }
