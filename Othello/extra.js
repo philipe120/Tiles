@@ -34,6 +34,13 @@ function AIsetup(){
 }
 
 function friend(){
+    /* how it works
+
+easy = random moves
+medium = random but prioritize corner, then edges
+hard = algothim that analyse moves in advance
+
+    */
     if (mode == "easy"){
         // let random = Math.floor((Math.random() * 2000)+100);
         randomtime = 100;
