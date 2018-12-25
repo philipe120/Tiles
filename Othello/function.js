@@ -2,7 +2,7 @@ let clicked = false;
 let started = false;
 let turn = 1;
 let addturn = false;
-let AImove = true;
+let single = true;
 
 function start() {
     if (!started) {
@@ -80,8 +80,8 @@ function mouseclick(a, b) {
             // reset();
             // automove();
         }
-        if (turn%2==0 && AImove){
-            AI();
+        if (turn%2==0 && single){
+            friend();
         }
     }
 }
