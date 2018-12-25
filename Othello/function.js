@@ -2,7 +2,7 @@ let clicked = false;
 let started = false;
 let turn = 1;
 let addturn = false;
-let AImove = false;
+let AImove = true;
 
 function start() {
     if (!started) {
@@ -17,7 +17,7 @@ function start() {
             }
         }
         grid += `</tr></table><button id = "automove" onclick="automove()">Auto Move</button>
-        <button onclick="reset()">Reset</button><button onclick="AIsetup()">I have no friends</button>`;
+        <button onclick="reset()">Reset</button>`;
 
         document.getElementById("demo").innerHTML = grid;
         started = true;

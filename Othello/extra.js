@@ -1,7 +1,7 @@
 var myvar;
 
 function automove(){
-    myvar = setInterval(autofunction,1000)
+    myvar = setInterval(autofunction,100)
     document.getElementById("automove").onclick = function(){stopmove()};
     document.getElementById("automove").innerHTML = "Stop Move";
 }
@@ -30,14 +30,14 @@ function reset(){
 
 function AI(){
     if (mode == "easy"){
-        setTimeout (autofunction,1000);
-    }
-    // else if (mode == "medium"){
-
-    // }
-    // else if (mode == "hard"){
+        // let random = Math.floor((Math.random() * 2000)+100);
+        random = 100;
+        setTimeout (autofunction,random);
+    }else if (mode == "medium"){
+        console.log("AA");
+    }else if (mode == "hard"){
         
-    // }
+    }
 }
 
 function AIsetup(){
