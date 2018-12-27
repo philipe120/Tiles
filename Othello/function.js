@@ -3,6 +3,7 @@ let started = false;
 let turn = 1;
 let addturn = false;
 let single = true;
+let pass = 0;
 
 function start() {
     if (!started) {
@@ -43,7 +44,6 @@ function mouseon(a, b) {
 }
 
 function mouseoff(a, b) {
-
     let element = document.getElementById(`row${a},column${b}`);
     element.classList.remove("white_hover");
     element.classList.remove("black_hover");
@@ -52,6 +52,7 @@ function mouseoff(a, b) {
 
 function mouseclick(a, b) {
 
+    document.getElementById("legal").innerHTML = ``;
     left(a, b, turn);
     right(a, b, turn);
     up(a, b, turn);
@@ -64,11 +65,16 @@ function mouseclick(a, b) {
     if (addturn) {
         writeself(a, b, turn);
 
+        if (pass == 1){
+            turn++;
+            document.getElementById("legal").innerHTML = `Pass`;
+        }
         turn++;
         scangrid(turn);
         addturn = false;
+
         if (turn == "end"){
-            
+
             winner = countgrid();
             if (winner != "Tie"){
                 document.getElementById("legal").innerHTML = `${winner} wins!`;
@@ -80,6 +86,9 @@ function mouseclick(a, b) {
             // reset();
             // automove();
         }
+
+
+
         if (turn%2==0 && single){
             friend();
         }
