@@ -8,9 +8,7 @@ function left(a, b, c) {
         line = scanline(a,y,line);
     }
 
-    let num = calculatearray(line, c);
-
-    if (num == true){
+    if (calculatearray(line, c)){
         for (let y = b; y >= 1; y--) {
             let element = document.getElementById(`row${a},column${y}`).className;
             if (element == cword(c)) {
@@ -29,9 +27,7 @@ function right(a, b, c) {
         line = scanline(a,y,line);
     }
 
-    let num = calculatearray(line, c);
-
-    if (num == true){
+    if (calculatearray(line, c)){
         for (let y = b; y <= 8; y++) {
             let element = document.getElementById(`row${a},column${y}`).className;
             if (element == cword(c)) {
@@ -50,9 +46,7 @@ function up(a,b,c){
         line = scanline(x,b,line);
     }
 
-    let num = calculatearray(line, c);
-
-    if (num == true){
+    if (calculatearray(line, c)){
         for (x=a;x>=1;x--){
             let element = document.getElementById(`row${x},column${b}`).className;
             if (element == cword(c)) {
@@ -71,9 +65,7 @@ function down(a,b,c){
         line = scanline(x,b,line);
     }
 
-    let num = calculatearray(line, c);
-
-    if (num == true){
+    if (calculatearray(line, c)){
         for (x=a;x<=8;x++){
             let element = document.getElementById(`row${x},column${b}`).className;
             if (element == cword(c)) {
@@ -96,9 +88,7 @@ function upleft(a, b, c) {
         }
     }
 
-    let num = calculatearray(line, c);
-    
-    if (num == true){
+    if (calculatearray(line, c)){
         breakloop:
         for (let x = a;x >= 1;x--){
             for (let y = b; y >= 1; y--) {
@@ -126,9 +116,7 @@ function upright(a, b, c) {
         }
     }
 
-    let num = calculatearray(line, c);
-    
-    if (num == true){
+    if (calculatearray(line, c)){
         breakloop:
         for (let x = a;x >= 1;x--){
             for (let y = b; y <= 8; y++) {
@@ -156,9 +144,7 @@ function downleft(a, b, c) {
         }
     }
 
-    let num = calculatearray(line, c);
-    
-    if (num == true){
+    if (calculatearray(line, c)){
         breakloop:
         for (let x = a;x <= 8;x++){
             for (let y = b; y >= 1; y--) {
@@ -185,10 +171,8 @@ function downright(a, b, c) {
             }
         }
     }
-
-    let num = calculatearray(line, c);
     
-    if (num == true){
+    if (calculatearray(line, c)){
         breakloop:
         for (let x = a;x <= 8;x++){
             for (let y = b; y <= 8; y++) {
@@ -253,7 +237,7 @@ function scanline(j,k,line){
     return line;
 }
 
-// function printline(){
+function countarray(){
 
 
-// }
+}

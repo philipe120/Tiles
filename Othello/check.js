@@ -1,6 +1,6 @@
 legalmove=4;
 coordinates = [[3,5],[5,3],[6,4],[4,6]];
-points = [];
+points = [1,1,1,1];
 
 function scangrid(c){
     //return legal moves
@@ -15,7 +15,7 @@ function scangrid(c){
         for (h=1;h<=8;h++){
             let a=g;
             let b=h;
-            
+
             let line = [];
             for (let y = b; y >= 1; y--) {
                 line = scanline(a,y,line);
