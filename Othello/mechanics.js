@@ -23,12 +23,12 @@ function left(a, b, c) {
 
 function right(a, b, c) {
     let line = [];
-    for (let y = b; y <= 8; y++) {
+    for (let y = b;y <= 8;y++) {
         line = scanline(a,y,line);
     }
 
     if (calculatearray(line, c)){
-        for (let y = b; y <= 8; y++) {
+        for (let y = b;y <= 8;y++) {
             let element = document.getElementById(`row${a},column${y}`).className;
             if (element == cword(c)) {
                 break;
@@ -42,12 +42,12 @@ function right(a, b, c) {
 
 function up(a,b,c){
     line=[];
-    for (x=a;x>=1;x--){
+    for (let x = a;x >= 1;x--){
         line = scanline(x,b,line);
     }
 
     if (calculatearray(line, c)){
-        for (x=a;x>=1;x--){
+        for (let x = a;x >= 1; x--){
             let element = document.getElementById(`row${x},column${b}`).className;
             if (element == cword(c)) {
                 break;
@@ -61,12 +61,12 @@ function up(a,b,c){
 
 function down(a,b,c){
     line=[];
-    for (x=a;x<=8;x++){
+    for (let x = a;x <= 8;x++){
         line = scanline(x,b,line);
     }
 
     if (calculatearray(line, c)){
-        for (x=a;x<=8;x++){
+        for (let x = a;x <= 8;x++){
             let element = document.getElementById(`row${x},column${b}`).className;
             if (element == cword(c)) {
                 break;

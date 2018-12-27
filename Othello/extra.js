@@ -18,7 +18,6 @@ function stopmove(){
 }
 
 function reset(){
-
     stopmove();
     turn=1;
     started = false;
@@ -88,40 +87,10 @@ hard = algothim that analyse moves in advance
             setTimeout (autofunction,randomtime);
         }
     }else if (mode == "hard"){
-        sidecoordinates = [];
-        cornercoordinates = [];
-
-        for(let x = 0;x < coordinates.length;x++){
-            if (coordinates[x][0] == 1 || coordinates[x][1] == 1 || 
-                coordinates[x][0] == 8 || coordinates[x][1] == 8){
-                sidecoordinates.push(coordinates[x]);
-            }
-        }
-
-        for(let x = 0;x < sidecoordinates.length;x++){
-            if (sidecoordinates[x][0] == 1){
-                if (sidecoordinates[x][1] == 1 || sidecoordinates[x][1] == 8){
-                    cornercoordinates.push(sidecoordinates[x]);
-                }
-            }else if (sidecoordinates[x][0] == 8){
-                if (sidecoordinates[x][1] == 1 || sidecoordinates[x][1] == 8){
-                    cornercoordinates.push(sidecoordinates[x]);
-                }
-            }
-        }
-
-        if (cornercoordinates.length != 0){
 
 
 
-        }else if (sidecoordinates.length != 0){
 
-
-
-        }else{
-
-            //move to the spot with the most points
-
-        }
+        
     }
 }
