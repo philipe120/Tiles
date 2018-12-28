@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="main.css">
 
     <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="settings.js"></script>
     <script type="text/javascript" src="game.js"></script>
 
     <title>Tiles — Battleships</title>
@@ -21,7 +22,11 @@
     <!-- navbar here -->
 
     <div id="game">
-        <button type="button" class="btn btn-light" id="launch">Launch Battleships</button>
+        <button type="button" class="btn btn-light center" id="launch">Launch Battleships</button>
+        <div id="info">
+            <p class="center" id="info-main">I'm here to help!</p>
+            <p class="center" id="info-small"></p>
+        </div>
         <div class="inblock" id="battlefield"></div>
         <div class="inblock" id="menu"></div>
     </div>

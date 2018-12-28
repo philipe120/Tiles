@@ -6,6 +6,28 @@
     margin: 0;
 }
 
+.center {
+    display: block;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#launch {
+    width: 50%;
+    padding: 1vh 0;
+}
+
+#info {
+    margin: 1vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#info-main {
+    font-size: 150%;
+    font-weight: 600;
+}
+
 table {
     margin: auto;
     border-collapse: collapse;
@@ -13,11 +35,11 @@ table {
 
 td {
     border: 1px solid black;
-    width: 4.5vw;
-    height: 4.5vw;
+    width: 4.20vw;
+    height: 4.20vw;
+    cursor: pointer;
 }
 
-#launch {
-    width: 50%;
-    margin: auto;
+td:hover {
+    background-color: #bdbdbd;
 }
