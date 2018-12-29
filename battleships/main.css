@@ -41,5 +41,5 @@ td {
 }
 
 td:hover {
-    background-color: #bdbdbd;
+    background-color: #bdbdbd !important;
 }

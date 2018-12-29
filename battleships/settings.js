@@ -34,6 +34,9 @@ let game = {
     field: {
         height: 10,
         width: 10,
+        clear: function() {
+            $('#battlefield td').css('background-color', 'white');
+        },
     },
     cursor: {
         action: false, // 3 possible values - placing, aiming, false

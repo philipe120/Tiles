@@ -32,15 +32,14 @@ function initialize() {
     // start placement of ships
     game.cursor.action = 'placing';
     game.currentPlayer = 1;
-    game.iterateShips = 0;
     $('#info-main').text(`Player ${game.currentPlayer}, place your ships!`);
-    // if (game.player2.isHuman) placement(2);
 }
 
 function clickDetect() {
     console.log("Click found at " + $(this).attr('data-x') + "," + $(this).attr('data-y'));
     switch (game.cursor.action) {
         case 'placing':
+            if (typeof game.iterateShips === 'undefined') game.iterateShips = 0;
             placement(parseInt($(this).attr('data-x')), parseInt($(this).attr('data-y')));
             break;
         case 'aiming':
@@ -68,8 +67,13 @@ function placement(x, y) {
     $('[selected]').attr('selected', false);
     // end placement phase after last ship is placed
     if (game.iterateShips >= game.listShips().length) {
+        game.field.clear();
+        game.iterateShips = 0;
         $('#info-main').empty();
         $('#info-small').empty();
-        game.cursor.action = false;
+        if (game.player2.isHuman && game.currentPlayer == 1) {
+            game.currentPlayer = 2;
+            $('#info-main').text(`Player ${game.currentPlayer}, place your ships!`);
+        } else if (game.currentPlayer == 2) game.cursor.action = false;
     }
 }
