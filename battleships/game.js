@@ -9,7 +9,7 @@ function initialize() {
     $('#launch').remove();
 
     // creates a grid where bottom-left cell is 0,0
-    let grid = "<table id='grid'>";
+    let grid = "<table>";
     for (let y = game.field.height - 1; y >= 0; y--) {
         grid += `<tr>`;
         for (let x = 0; x < game.field.width; x++) {
@@ -22,7 +22,7 @@ function initialize() {
     $('#info').show();
 
     // check for click
-    $('td').click(clickDetect);
+    $('#battlefield td').click(clickDetect);
 
     // check for keypress (indicates rotate)
     $(document).keypress(e => {
