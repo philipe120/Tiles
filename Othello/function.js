@@ -52,7 +52,6 @@ function mouseoff(a, b) {
 
 function mouseclick(a, b) {
 
-    document.getElementById("legal").innerHTML = ``;
     left(a, b, turn);
     right(a, b, turn);
     up(a, b, turn);
@@ -65,12 +64,12 @@ function mouseclick(a, b) {
     if (addturn) {
         writeself(a, b, turn);
 
+        turn++;
+        scangrid(turn);
         if (pass == 1){
             turn++;
             document.getElementById("legal").innerHTML = `Pass`;
         }
-        turn++;
-        scangrid(turn);
         addturn = false;
 
         if (turn == "end"){
