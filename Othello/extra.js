@@ -1,14 +1,9 @@
 var myvar;
 
 function automove(){
-    myvar = setInterval(autofunction,100)
+    myvar = setInterval(friend,1000)
     document.getElementById("automove").onclick = function(){stopmove()};
     document.getElementById("automove").innerHTML = "Stop Move";
-}
-
-function autofunction(){
-    let random = Math.floor((Math.random() * coordinates.length));
-    mouseclick(coordinates[random][0],coordinates[random][1]);
 }
 
 function stopmove(){
@@ -43,7 +38,10 @@ hard = algothim that analyse moves in advance
     if (mode == "easy"){
         // let random = Math.floor((Math.random() * 2000)+100);
         randomtime = 100;
-        setTimeout (autofunction,randomtime);
+        setTimeout(() => {
+            let random = Math.floor((Math.random() * cornercoordinates.length));
+            mouseclick(coordinates[random][0],coordinates[random][1]);
+        }, randomtime);
     }else if (mode == "medium"){
         sidecoordinates = [];
         cornercoordinates = [];
@@ -84,7 +82,10 @@ hard = algothim that analyse moves in advance
         }else{
             // let random = Math.floor((Math.random() * 2000)+100);
             randomtime = 100;
-            setTimeout (autofunction,randomtime);
+            setTimeout(() => {
+                let random = Math.floor((Math.random() * cornercoordinates.length));
+                mouseclick(coordinates[random][0],coordinates[random][1]);
+            }, randomtime);
         }
     }else if (mode == "hard"){
 
