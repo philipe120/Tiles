@@ -3,7 +3,7 @@ let grey = "rgb(128, 128, 128)";
 let game = {
     turn: 1,
     currentPlayer: 1, // 1 or 2
-    listShips: function() {
+    get listShips() {
         return Object.keys(this.ships);
     },
     ships: {
@@ -34,14 +34,14 @@ let game = {
     field: {
         height: 10,
         width: 10,
-        clear: function() {
+        clear() {
             $('#battlefield td').css('background-color', 'white');
         },
     },
     cursor: {
         action: false, // 3 possible values - placing, aiming, false
         direction: 'vertical', // 2 possible values - vertical, horizontal
-        rotate: key => {
+        rotate(key) {
             switch (key) {
                 case 'w':
                 case 's':
@@ -54,7 +54,7 @@ let game = {
             }
             console.log("Cursor rotated.");
         },
-        isClear: (x, y, distance, direction) => {
+        isClear(x, y, distance, direction) {
             switch (direction) {
                 case 'vertical':
                     if (y - distance + 1 < 0) return false;

@@ -49,14 +49,14 @@ function clickDetect() {
 }
 
 function placement(x, y) {
-    if (game.cursor.isClear(x, y, game.ships[game.listShips()[game.iterateShips]].length, game.cursor.direction)) {
+    if (game.cursor.isClear(x, y, game.ships[game.listShips[game.iterateShips]].length, game.cursor.direction)) {
         // if the selected tiles are clear, fill them and move onto placing next ship
         $('#info-small').css('color', 'black').empty();
         $('[selected]').css({
             'background-color': grey,
             'cursor': 'default',
         });
-        console.log(`${game.listShips()[game.iterateShips]} placed!`);
+        console.log(`${game.listShips[game.iterateShips]} placed!`);
         game.iterateShips++;
     } else {
         // if selected tiles are invalid, update help message
@@ -66,7 +66,7 @@ function placement(x, y) {
     // deselect all tiles
     $('[selected]').attr('selected', false);
     // end placement phase after last ship is placed
-    if (game.iterateShips >= game.listShips().length) {
+    if (game.iterateShips >= game.listShips.length) {
         game.field.clear();
         game.iterateShips = 0;
         $('#info-main').empty();
