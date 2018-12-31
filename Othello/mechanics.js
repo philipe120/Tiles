@@ -197,9 +197,9 @@ function writeself(a, b, c) {
 
 function cword(c) {
     if (c % 2 == 1) {
-        return "white";
-    } else if (c % 2 == 0) {
         return "black";
+    } else if (c % 2 == 0) {
+        return "white";
     } else {
         return "panic";
     }

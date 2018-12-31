@@ -36,10 +36,10 @@ function mouseon(a, b) {
 
     }else if (turn%2==1){
         let element = document.getElementById(`row${a},column${b}`);
-        element.classList.add("white_hover");
+        element.classList.add("black_hover");
     }else if (turn%2==0){
         let element = document.getElementById(`row${a},column${b}`);
-        element.classList.add("black_hover");
+        element.classList.add("white_hover");
     }
 }
 
