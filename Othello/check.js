@@ -225,7 +225,7 @@ function scangrid(c){
             }
 
             if (tilepoints != 0){
-                points.push([[a,b],tilepoints]);
+                points.push([tilepoints,[a,b]]);
             }
 
         }
@@ -241,18 +241,37 @@ function scangrid(c){
     }
 
     pointsort();
-    console.log(coordinates);
     console.log(points);
 }
 
 function pointsort(){
     // sort points
-    // 0 = 1,5,7,etc.
-    // 1 = [[1,2],[4,5]]
-    // 5 = [[4,5]]
-    // etc.
-    points;
 
+    let temppoints = [[]];
+
+    for (let x = 0;x < points.length;x++){
+        if (typeof temppoints[0][points[x][0]] === "undefined"){
+            temppoints[0][points[x][0]] = points[x][0];
+        }
+    }
+
+    for (let x = 1;x < temppoints[0].length;x++){
+        if (typeof temppoints[0][x] !== "undefined"){
+            temppoints[x] = [];
+        }
+    }
+
+    for (let x = 1;x < temppoints.length;x++){
+        if (typeof temppoints[x] !== "undefined"){
+            for (let y = 0;y < points.length;y++){
+                if (points[y][0] == x){
+                    temppoints[x].push(points[y][1]);
+                }
+            }
+        }
+    }
+
+    points = temppoints;
 }
 
 function countgrid(){
