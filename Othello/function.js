@@ -74,7 +74,6 @@ function mouseclick(a, b) {
         addturn = false;
 
         if (turn == "end"){
-
             winner = countgrid();
             if (winner != "Tie"){
                 document.getElementById("legal").innerHTML = `${winner} wins!`;
@@ -86,8 +85,6 @@ function mouseclick(a, b) {
             // reset();
             // automove();
         }
-
-
 
         if (turn%2==0 && single){
             friend();
