@@ -19,7 +19,7 @@ function reset(){
     start();
     legalmove=4;
     coordinates = [[3,5],[5,3],[6,4],[4,6]];
-
+    points = [[,1],[[3,5],[5,3],[6,4],[4,6]]];
 }
 
 function AIsetup(){
@@ -42,6 +42,7 @@ hard = algothim that analyse moves in advance
             let random = Math.floor((Math.random() * cornercoordinates.length));
             mouseclick(coordinates[random][0],coordinates[random][1]);
         }, randomtime);
+
     }else if (mode == "medium"){
         sidecoordinates = [];
         cornercoordinates = [];
@@ -66,32 +67,33 @@ hard = algothim that analyse moves in advance
         }
 
         if (cornercoordinates.length != 0){
-            // let random = Math.floor((Math.random() * 2000)+100);
+            // let random = Math.floor((Math.random() * 2000)+1000);
             randomtime = 100;
             setTimeout(() => {
                 let random = Math.floor((Math.random() * cornercoordinates.length));
                 mouseclick(cornercoordinates[random][0],cornercoordinates[random][1]);
             }, randomtime);
         }else if (sidecoordinates.length != 0){
-            // let random = Math.floor((Math.random() * 2000)+100);
+            // let random = Math.floor((Math.random() * 2000)+1000);
             randomtime = 100;
             setTimeout(() => {
                 let random = Math.floor((Math.random() * sidecoordinates.length));
                 mouseclick(sidecoordinates[random][0],sidecoordinates[random][1]);
             }, randomtime);
         }else{
-            // let random = Math.floor((Math.random() * 2000)+100);
+            // let random = Math.floor((Math.random() * 2000)+1000);
             randomtime = 100;
             setTimeout(() => {
-                let random = Math.floor((Math.random() * cornercoordinates.length));
-                mouseclick(coordinates[random][0],coordinates[random][1]);
+                let random = Math.floor((Math.random() * points[points.length-1].length));
+                mouseclick(points[points.length-1][random][0],points[points.length-1][random][1]);
             }, randomtime);
         }
+
     }else if (mode == "hard"){
 
 
 
 
-        
+
     }
 }

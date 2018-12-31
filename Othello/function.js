@@ -69,6 +69,7 @@ function mouseclick(a, b) {
         if (pass == 1){
             turn++;
             document.getElementById("legal").innerHTML = `Pass`;
+            scangrid(turn);
         }
         addturn = false;
 

@@ -1,6 +1,6 @@
 legalmove=4;
 coordinates = [[3,5],[5,3],[6,4],[4,6]];
-points = [1,1,1,1];
+points = [[,1],[[3,5],[5,3],[6,4],[4,6]]];
 
 function scangrid(c){
     //return legal moves
@@ -239,9 +239,7 @@ function scangrid(c){
     }else{
         pass = 0;
     }
-
     pointsort();
-    console.log(points);
 }
 
 function pointsort(){
