@@ -33,13 +33,13 @@ table {
     border-collapse: collapse;
 }
 
-td {
+#battlefield td {
     border: 1px solid black;
     width: 4.20vw;
     height: 4.20vw;
     cursor: crosshair;
 }
 
-td:hover {
+#battlefield td:hover {
     background-color: #bdbdbd !important;
 }
