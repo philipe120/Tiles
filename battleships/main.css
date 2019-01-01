@@ -37,7 +37,7 @@ td {
     border: 1px solid black;
     width: 4.20vw;
     height: 4.20vw;
-    cursor: pointer;
+    cursor: crosshair;
 }
 
 td:hover {
