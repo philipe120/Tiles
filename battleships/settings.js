@@ -26,10 +26,12 @@ let game = {
     player1: {
         name: "",
         isHuman: true, // should always be true
+        field: [],
     },
     player2: {
         name: "",
         isHuman: true,
+        field: [],
     },
     field: {
         height: 10,

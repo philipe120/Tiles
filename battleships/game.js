@@ -19,6 +19,17 @@ function initialize() {
     }
     grid += "</table>";
     $('#battlefield').append(grid);
+
+    // creates 2D array representing each player's battlefield
+    for (let x = 0; x < game.field.width; x++) {
+        game.player1.field.push([]);
+        game.player2.field.push([]);
+        for (let y = game.field.height - 1; y >= 0; y--) {
+            game.player1.field[x].push(false);
+            game.player2.field[x].push(false);
+        }
+    }
+
     $('#info').show();
 
     // check for click
@@ -56,6 +67,9 @@ function placement(x, y) {
             'background-color': grey,
             'cursor': 'default',
         });
+        $('[selected]').each(function() {
+            game[`player${game.currentPlayer}`].field[$(this).attr('data-x')][$(this).attr('data-y')] = game.listShips[game.iterateShips];
+        });
         console.log(`${game.listShips[game.iterateShips]} placed!`);
         game.iterateShips++;
     } else {
@@ -72,6 +86,7 @@ function placement(x, y) {
         $('#info-main').empty();
         $('#info-small').empty();
         if (game.player2.isHuman && game.currentPlayer == 1) {
+            game.cursor.direction = 'vertical';
             game.currentPlayer = 2;
             $('#info-main').text(`Player ${game.currentPlayer}, place your ships!`);
         } else if (game.currentPlayer == 2) game.cursor.action = false;
