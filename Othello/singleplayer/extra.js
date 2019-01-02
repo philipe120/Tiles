@@ -31,7 +31,7 @@ function friend(){
     /* how it works
 
 easy = random moves
-medium = random but prioritize corner, then edges
+medium = random but prioritize corner, then edges, then highest points
 hard = algothim that analyse moves in advance
 
     */
@@ -42,7 +42,6 @@ hard = algothim that analyse moves in advance
             let random = Math.floor((Math.random() * coordinates.length));
             mouseclick(coordinates[random][0],coordinates[random][1]);
         }, randomtime);
-
     }else if (mode == "medium"){
         sidecoordinates = [];
         cornercoordinates = [];
@@ -88,7 +87,6 @@ hard = algothim that analyse moves in advance
                 mouseclick(points[points.length-1][random][0],points[points.length-1][random][1]);
             }, randomtime);
         }
-
     }else if (mode == "hard"){
         bestmove();
     }
