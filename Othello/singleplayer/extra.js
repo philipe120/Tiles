@@ -47,8 +47,8 @@ hard = algothim that analyse moves in advance
         cornercoordinates = [];
 
         for(let x = 0;x < coordinates.length;x++){
-            if (coordinates[x][0] == 1 || coordinates[x][1] == 1 || 
-                coordinates[x][0] == 8 || coordinates[x][1] == 8){
+            if ((coordinates[x][0] == 1 || coordinates[x][1] == 1) || 
+                (coordinates[x][0] == 8 || coordinates[x][1] == 8)){
                 sidecoordinates.push(coordinates[x]);
             }
         }
