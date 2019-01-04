@@ -1,4 +1,4 @@
-/* globals game, grey */
+/* globals game, grey, red */
 
 $(document).ready(function() {
     $('#info').hide();
@@ -54,7 +54,14 @@ function clickDetect() {
             placement(parseInt($(this).attr('data-x')), parseInt($(this).attr('data-y')));
             break;
         case 'aiming':
-            // shoot(parseInt($(this).attr('data-x')), parseInt($(this).attr('data-y')));
+            if (shoot(parseInt($(this).attr('data-x')), parseInt($(this).attr('data-y')))) {
+                setTimeout(function() {
+                    game.currentPlayer = game.currentPlayer == 1 ? 2 : 1;
+                    loadField(game.currentPlayer == 1 ? 2 : 1);
+                    $('#info-main').text(`Player ${game.currentPlayer}, fire!`);
+                    game.cursor.action = 'aiming';
+                }, 1000);
+            }
             break;
     }
 }
@@ -63,6 +70,7 @@ function placement(x, y) {
     if (game.cursor.isClear(x, y, game.ships[game.listShips[game.iterateShips]].length, game.cursor.direction)) {
         // if the selected tiles are clear, fill them and move onto placing next ship
         $('#info-small').css('color', 'black').empty();
+        // BUG NOTICE: 2nd player can see where player 1 placed ships due to changed cursor
         $('[selected]').css({
             'background-color': grey,
             'cursor': 'default',
@@ -83,12 +91,54 @@ function placement(x, y) {
     if (game.iterateShips >= game.listShips.length) {
         game.field.clear();
         game.iterateShips = 0;
-        $('#info-main').empty();
-        $('#info-small').empty();
+        $('#info p').empty();
         if (game.player2.isHuman && game.currentPlayer == 1) {
             game.cursor.direction = 'vertical';
             game.currentPlayer = 2;
             $('#info-main').text(`Player ${game.currentPlayer}, place your ships!`);
-        } else if (game.currentPlayer == 2) game.cursor.action = false;
+        } else if (game.currentPlayer == 2) {
+            game.cursor.action = 'aiming';
+            game.currentPlayer = 1;
+            $('#info-main').text(`Player ${game.currentPlayer}, fire!`);
+            $('#info-small').text("Click on any empty tile to fire at your enemy's fleet!");
+            loadField(2);
+        }
+    }
+}
+
+function loadField(player) {
+    game.field.clear();
+    for (const [x, row] of game[`player${player}`].field.entries()) {
+        for (const [y, cell] of row.entries()) {
+            let $cell = $(`[data-x=${x}][data-y=${y}]`);
+            switch (cell) {
+                case 'hit':
+                    $cell.css('background-color', red);
+                    break;
+                case 'miss':
+                    $cell.text('miss');
+                    break;
+            }
+        }
+    }
+}
+
+function shoot(x, y) {
+    const $targetCell = $(`[data-x=${x}][data-y=${y}]`);
+    if ($targetCell.css('background-color') != red && $targetCell.text() != 'miss') {
+        if (game[`player${game.currentPlayer == 1 ? 2 : 1}`].field[x][y]) {
+            game[`player${game.currentPlayer == 1 ? 2 : 1}`].field[x][y] = 'hit';
+            $targetCell.css('background-color', red);
+        } else {
+            $targetCell.text("miss");
+            game[`player${game.currentPlayer == 1 ? 2 : 1}`].field[x][y] = 'miss';
+        }
+        $('#info-small').css('color', 'black').text("Click on any empty tile to fire at your enemy's fleet!");
+        game.cursor.action = false;
+        return true;
+    } else {
+        $('#info-small').css('color', 'red').text("Cannot shoot here!");
+        console.log("Invalid shot position!");
+        return false;
     }
 }

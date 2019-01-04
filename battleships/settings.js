@@ -1,4 +1,5 @@
-let grey = "rgb(128, 128, 128)";
+const grey = "rgb(128, 128, 128)";
+const red = "rgb(255, 0, 0)";
 
 let game = {
     turn: 1,
@@ -37,7 +38,7 @@ let game = {
         height: 10,
         width: 10,
         clear() {
-            $('#battlefield td').css('background-color', 'white');
+            $('#battlefield td').css('background-color', 'white').empty();
         },
     },
     cursor: {

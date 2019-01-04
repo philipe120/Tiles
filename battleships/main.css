@@ -38,8 +38,5 @@ table {
     width: 4.20vw;
     height: 4.20vw;
     cursor: crosshair;
-}
-
-#battlefield td:hover {
-    background-color: #bdbdbd !important;
+    text-align: center;
 }
