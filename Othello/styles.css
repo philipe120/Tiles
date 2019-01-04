@@ -1,12 +1,31 @@
-table,td{
-	border: 1px solid black;
-	
+table{
+	border-spacing: 0px;
 }
 
 td{
 	width : 4.5vw;
 	height : 4.5vw;
+	border: 1px solid black;
 }
+
+
+table.test {
+	border: 4vw transparent solid;
+	border-image: url(../assets/img/wood.jpg) 20% stretch;
+}
+table.test tr:first-child td {
+	border-top: 0;
+}
+table.test tr td:first-child {
+	border-left: 0;
+}
+table.test tr:last-child td {
+	border-bottom: 0;
+}
+table.test tr td:last-child {
+	border-right: 0;
+}
+
 
 td.grey{
     background-color : #999999 ;

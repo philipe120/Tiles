@@ -5,7 +5,7 @@ let single = true;
 let pass = 0;
 
 function start() {
-    let grid = "<table><tr>";
+    let grid = "<table class = 'test'><tr>";
     for (let x = 1; x <= 8; x++) {
         for (let y = 1; y <= 8; y++) {
             grid += `<td class='grey' onmouseover='mouseon(${x},${y})' onmouseout='mouseoff(${x},${y})' 

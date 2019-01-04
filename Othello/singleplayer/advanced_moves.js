@@ -14,3 +14,10 @@ The other is brute-force, coding every trick and move there is and choosing the 
 
 
 }
+
+function stable(){
+
+
+
+    
+}
