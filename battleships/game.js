@@ -55,10 +55,12 @@ function clickDetect() {
             break;
         case 'aiming':
             if (shoot(parseInt($(this).attr('data-x')), parseInt($(this).attr('data-y')))) {
+                game.cursor.action = false;
                 setTimeout(function() {
                     game.currentPlayer = game.currentPlayer == 1 ? 2 : 1;
                     loadField(game.currentPlayer == 1 ? 2 : 1);
                     $('#info-main').text(`Player ${game.currentPlayer}, fire!`);
+                    $('#info-small').text("Click on any empty tile to fire at your enemy's fleet!");
                     game.cursor.action = 'aiming';
                 }, 1000);
             }
@@ -126,15 +128,16 @@ function loadField(player) {
 function shoot(x, y) {
     const $targetCell = $(`[data-x=${x}][data-y=${y}]`);
     if ($targetCell.css('background-color') != red && $targetCell.text() != 'miss') {
+        $('#info-small').css('color', 'black');
         if (game[`player${game.currentPlayer == 1 ? 2 : 1}`].field[x][y]) {
             game[`player${game.currentPlayer == 1 ? 2 : 1}`].field[x][y] = 'hit';
             $targetCell.css('background-color', red);
+            $('#info-small').text("Enemy shit hit!");
         } else {
             $targetCell.text("miss");
             game[`player${game.currentPlayer == 1 ? 2 : 1}`].field[x][y] = 'miss';
+            $('#info-small').text("Shot lands harmlessly into the ocean...");
         }
-        $('#info-small').css('color', 'black').text("Click on any empty tile to fire at your enemy's fleet!");
-        game.cursor.action = false;
         return true;
     } else {
         $('#info-small').css('color', 'red').text("Cannot shoot here!");
