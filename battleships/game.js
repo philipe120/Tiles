@@ -132,7 +132,7 @@ function shoot(x, y) {
         if (game[`player${game.currentPlayer == 1 ? 2 : 1}`].field[x][y]) {
             game[`player${game.currentPlayer == 1 ? 2 : 1}`].field[x][y] = 'hit';
             $targetCell.css('background-color', red);
-            $('#info-small').text("Enemy shit hit!");
+            $('#info-small').text("Enemy ship hit!");
         } else {
             $targetCell.text("miss");
             game[`player${game.currentPlayer == 1 ? 2 : 1}`].field[x][y] = 'miss';
