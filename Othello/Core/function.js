@@ -9,7 +9,8 @@ function start() {
     for (let x = 1; x <= 8; x++) {
         for (let y = 1; y <= 8; y++) {
             grid += `<td class='grey' onmouseover='mouseon(${x},${y})' onmouseout='mouseoff(${x},${y})' 
-            onclick = 'mouseclick(${x},${y})' id = 'row${x},column${y}'></td>`;
+            onclick = 'mouseclick(${x},${y})' id = 'row${x},column${y}'><div class = "space">
+            </div></td>`;
         }
         if (x != 8) {
             grid += `</tr id = 'row${x}'><tr>`;

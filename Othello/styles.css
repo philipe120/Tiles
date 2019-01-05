@@ -3,15 +3,21 @@ table{
 }
 
 td{
-	width : 4.5vw;
-	height : 4.5vw;
-	border: 1px solid black;
+	border: 1px solid #222222;
+	padding: 0px;
+}
+
+div.space{
+	width: 5vw;
+	min-width: 60px;
+	height: 5vw;
+	min-height: 60px;
 }
 
 
 table.test {
-	border: 4vw transparent solid;
-	border-image: url(../assets/img/wood.jpg) 20% stretch;
+	border: 50px transparent solid;
+	border-image: url(../assets/img/wood.jpg) 10% stretch;
 }
 table.test tr:first-child td {
 	border-top: 0;
@@ -32,7 +38,7 @@ td.grey{
 }
 
 td.white{
-	background-color: #ffffff;
+	background-color : #ffffff;
 }
 
 td.black{
@@ -44,7 +50,7 @@ td.black_hover{
 }
 
 td.white_hover{
-	background-color : #dddddd;
+	background-color : #d2d2d2;
 }
 
 td.panic{
