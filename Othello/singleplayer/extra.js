@@ -83,8 +83,13 @@ hard = algothim that analyse moves in advance
             // let random = Math.floor((Math.random() * 2000)+1000);
             randomtime = 100;
             setTimeout(() => {
-                let random = Math.floor((Math.random() * points[points.length-1].length));
-                mouseclick(points[points.length-1][random][0],points[points.length-1][random][1]);
+                if (Math.floor((Math.random()))){
+                    let random = Math.floor((Math.random() * points[points.length-1].length));
+                    mouseclick(points[points.length-1][random][0],points[points.length-1][random][1]);
+                }else{
+                    let random = Math.floor((Math.random() * coordinates.length));
+                    mouseclick(coordinates[random][0],coordinates[random][1]);
+                }
             }, randomtime);
         }
     }else if (mode == "hard"){
