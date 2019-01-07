@@ -22,8 +22,7 @@ opacity: 1;
 }
 
 html {
-	width: 100vw;
-    height: 100vh;
+	height: 100%;
 }
 
 
@@ -35,6 +34,7 @@ html {
 
 body {
     font-family: sans-serif;
+    height: 100%;
 }
 
 /*a {
@@ -284,21 +284,25 @@ h2 {
 }
 
 .left {
-  left: 0;
-  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 55%;
 }
 
 .right {
-  right: 0;
-  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  right: 55%;
 }
 
+/*right: 0;
+  background-color: transparent;
+*/
 .centered {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  left: 55%;
+ /* text-align: center;*/
 }
 
 
@@ -313,13 +317,14 @@ h2 {
 
 .bot {
 	position: relative;
-	top: 200px;
+	top: 20vh;
 }
 
 
 
+#2 {
 
-
+}
 
 
 
@@ -369,7 +374,7 @@ h2 {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1;
-  margin: 20px;
+  margin: 10vh;
   padding: 1.1em 2.7em;
   text-decoration: none;
   text-align: center;
@@ -425,4 +430,81 @@ body{
     position: absolute;
     top: 50%;
     width: 100%;
+}
+
+#box {
+  background-color: lightgray;
+}
+
+.section1 {
+    height: 100%;
+    padding-top: 35px;
+}
+
+.section2 {
+    height: 200%;
+    padding-top: 35px;
+    background-color: #75b4c5;
+    width: 100%
+}
+
+.section3 {
+    height: 100%;
+    padding-top: 35px;
+    width: 100%
+}
+
+#font1 {
+font-family: futura-pt;
+font-weight: 400;
+font-style: normal;
+font-size: 20px;
+letter-spacing: .5px;
+line-height: 1.6em;
+color: #292d40;
+}
+
+#logo {
+ text-align:center;
+ height: 70%
+ width: 70%;
+ margin-top: 10%;
+ margin-bottom: 40px;
+}
+
+#imageframe{
+  /* background:transparent;
+    padding:8px;
+    border:3px solid #999999;*/
+    border: 2px solid #292d40;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+.align {
+  text-align: center;
+}
+
+p {
+    
+
+}
+
+#textlimit {
+  word-wrap: normal | break-word;
+  margin: auto;
+  width: 50%;
+  height: 70%;
+}
+
+#imageframe2{
+  /* background:transparent;
+    padding:8px;
+    border:3px solid #999999;*/
+    border: 2px solid #292d40;
+/*  border-radius: 4px;*/
+  padding: 0.7vh;
+  width: 60%;
+  margin-bottom: 10%;
 }
