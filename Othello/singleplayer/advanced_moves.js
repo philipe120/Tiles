@@ -1,8 +1,8 @@
-f_move1 = [];
-f_move2 = [];
-f_move3 = [];
 simgrid = [];
 //simgrid = [["grey","grey",etc.],["grey","grey",etc.],etc.]
+
+
+
 
 // store stuff for hard difficulty
 
@@ -14,7 +14,11 @@ tips and trick?
 */
 
 // we want to get pieces to be stable?
-create_simgrid()
+create_simgrid();
+
+console.log(analyse_simgrid(simgrid,turn));
+
+// click_simgrid(a, b, turn);
 }
 
 function create_simgrid(){
@@ -28,20 +32,4 @@ function create_simgrid(){
             simgrid[x][y] = element.className;
         }
     }
-    console.log(simgrid);
-}
-
-function analyse_simgrid(){
-
-}
-
-
-function analyse(){
-
-}
-
-function cornertrap(){
-
-
-
 }
