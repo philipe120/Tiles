@@ -41,7 +41,7 @@ function right(a, b, c) {
 }
 
 function up(a,b,c){
-    line=[];
+    let line=[];
     for (let x = a;x >= 1;x--){
         line = scanline(x,b,line);
     }
@@ -60,7 +60,7 @@ function up(a,b,c){
 }
 
 function down(a,b,c){
-    line=[];
+    let line=[];
     for (let x = a;x <= 8;x++){
         line = scanline(x,b,line);
     }
