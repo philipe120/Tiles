@@ -37,7 +37,8 @@ simgrid_main = [];
 simturn = 1;
 for(let j = 0; j <= 1; j++){ // number of moves forward
 
-    console.log(simgrid_main);
+    // console.log(simgrid_main[0]);
+    // console.log(simgrid_main[1]);
 
     if(j == 0){
         
@@ -45,12 +46,17 @@ for(let j = 0; j <= 1; j++){ // number of moves forward
         simcoordinates_main[0] = analyse_simgrid(simgrid_main[0], simturn);
 
     }else if(j == 1){
-
+        // something goes wrong here
+        let k = 0;
+        j = 1;
         simgrid_main[j] = {};
-        for(let k = 0; k < simcoordinates_main[j-1].length; k++){
-            simgrid_main[j][`${simcoordinates_main[j-1][k][0]},${simcoordinates_main[j-1][k][1]}`] = click_simgrid(simcoordinates_main[j-1][k][0], simcoordinates_main[j-1][k][1], simturn, simgrid_main[0]);
+        // for(let k = 0; k < simcoordinates_main[j-1].length; k++){
 
-        }
+
+        // click_simgrid
+        simgrid_main[j][`${simcoordinates_main[j-1][k][0]},${simcoordinates_main[j-1][k][1]}`] = click_simgrid(simcoordinates_main[j-1][k][0], simcoordinates_main[j-1][k][1], simturn, simgrid_main[0]);
+        
+        // }
         console.log(simgrid_main);
     }
 }
@@ -80,6 +86,6 @@ function create_simgrid(){
             element.classList.remove("black_hover");
             simgrid[x][y] = element.className;
         }
-    }
+    }    
     return simgrid;
 }

@@ -1,6 +1,6 @@
 function click_simgrid(a, b, c, simgrid){
     // returns new grid
-    
+
     let line = [];
     for (let y = b; y >= 1; y--) {
         line.push(simgrid[a][y]);
