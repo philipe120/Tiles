@@ -1,17 +1,17 @@
-function click_simgrid(a, b, c){
+function click_simgrid(a, b, c, simgrid){
+    // returns new grid
     
     let line = [];
     for (let y = b; y >= 1; y--) {
-        line = scanline(a,y,line);
+        line.push(simgrid[a][y]);
     }
 
     if (calculatearray(line, c)){
         for (let y = b; y >= 1; y--) {
-            let element = document.getElementById(`row${a},column${y}`).className;
-            if (element == cword(c)) {
+            if (simgrid[a][y] == cword(c)) {
                 break;
-            } else if (element == cword(c + 1)) {
-                document.getElementById(`row${a},column${y}`).className = cword(c);
+            } else if (simgrid[a][y] == cword(c + 1)) {
+                simgrid[a][y] = cword(c);
             }
         }
     }
@@ -19,16 +19,15 @@ function click_simgrid(a, b, c){
 
     line = [];
     for (let y = b;y <= 8;y++) {
-        line = scanline(a,y,line);
+        line.push(simgrid[a][y]);
     }
 
     if (calculatearray(line, c)){
         for (let y = b;y <= 8;y++) {
-            let element = document.getElementById(`row${a},column${y}`).className;
-            if (element == cword(c)) {
+            if (simgrid[a][y] == cword(c)) {
                 break;
-            } else if (element == cword(c + 1)) {
-                document.getElementById(`row${a},column${y}`).className = cword(c);
+            } else if (simgrid[a][y] == cword(c + 1)) {
+                simgrid[a][y] = cword(c);
             }
         }
     }
@@ -36,16 +35,15 @@ function click_simgrid(a, b, c){
 
     line=[];
     for (let x = a;x >= 1;x--){
-        line = scanline(x,b,line);
+        line.push(simgrid[x][b]);
     }
 
     if (calculatearray(line, c)){
         for (let x = a;x >= 1; x--){
-            let element = document.getElementById(`row${x},column${b}`).className;
-            if (element == cword(c)) {
+            if (simgrid[x][b] == cword(c)) {
                 break;
-            } else if (element == cword(c + 1)) {
-                document.getElementById(`row${x},column${b}`).className = cword(c);
+            } else if (simgrid[x][b] == cword(c + 1)) {
+                simgrid[x][b] = cword(c);
             }
         }
     }
@@ -53,16 +51,15 @@ function click_simgrid(a, b, c){
 
     line=[];
     for (let x = a;x <= 8;x++){
-        line = scanline(x,b,line);
+        line.push(simgrid[x][b]);
     }
 
     if (calculatearray(line, c)){
         for (let x = a;x <= 8;x++){
-            let element = document.getElementById(`row${x},column${b}`).className;
-            if (element == cword(c)) {
+            if (simgrid[x][b] == cword(c)) {
                 break;
-            } else if (element == cword(c + 1)) {
-                document.getElementById(`row${x},column${b}`).className = cword(c);
+            } else if (simgrid[x][b] == cword(c + 1)) {
+                simgrid[x][b] = cword(c);
             }
         }
     }
@@ -72,7 +69,7 @@ function click_simgrid(a, b, c){
     for (let x = a;x >= 1;x--){
         for (let y = b; y >= 1; y--) {
             if (a-b == x-y){
-                line = scanline(x,y,line);
+                line.push(simgrid[x][y]);
             }
         }
     }
@@ -82,11 +79,10 @@ function click_simgrid(a, b, c){
         for (let x = a;x >= 1;x--){
             for (let y = b; y >= 1; y--) {
                 if (a-b == x-y){
-                    let element = document.getElementById(`row${x},column${y}`).className;
-                    if (element == cword(c)) {
+                    if (simgrid[x][y] == cword(c)) {
                         break breakloop;
-                    } else if (element == cword(c + 1)) {
-                        document.getElementById(`row${x},column${y}`).className = cword(c);
+                    } else if (simgrid[x][y] == cword(c + 1)) {
+                        simgrid[x][y] = cword(c);
                     }
                 }
             }
@@ -98,7 +94,7 @@ function click_simgrid(a, b, c){
     for (let x = a;x >= 1;x--){
         for (let y = b; y <= 8; y++) {
             if (a+b == x+y){
-                line = scanline(x,y,line);
+                line.push(simgrid[x][y]);
             }
         }
     }
@@ -108,11 +104,10 @@ function click_simgrid(a, b, c){
         for (let x = a;x >= 1;x--){
             for (let y = b; y <= 8; y++) {
                 if (a+b == x+y){
-                    let element = document.getElementById(`row${x},column${y}`).className;
-                    if (element == cword(c)) {
+                    if (simgrid[x][y] == cword(c)) {
                         break breakloop;
-                    } else if (element == cword(c + 1)) {
-                        document.getElementById(`row${x},column${y}`).className = cword(c);
+                    } else if (simgrid[x][y] == cword(c + 1)) {
+                        simgrid[x][y] = cword(c);
                     }
                 }
             }
@@ -124,7 +119,7 @@ function click_simgrid(a, b, c){
     for (let x = a;x <= 8;x++){
         for (let y = b; y >= 1; y--) {
             if (a+b == x+y){
-                line = scanline(x,y,line);
+                line.push(simgrid[x][y]);
             }
         }
     }
@@ -134,11 +129,10 @@ function click_simgrid(a, b, c){
         for (let x = a;x <= 8;x++){
             for (let y = b; y >= 1; y--) {
                 if (a+b == x+y){
-                    let element = document.getElementById(`row${x},column${y}`).className;
-                    if (element == cword(c)) {
+                    if (simgrid[x][y] == cword(c)) {
                         break breakloop;
-                    } else if (element == cword(c + 1)) {
-                        document.getElementById(`row${x},column${y}`).className = cword(c);
+                    } else if (simgrid[x][y] == cword(c + 1)) {
+                        simgrid[x][y] = cword(c);
                     }
                 }
             }
@@ -150,7 +144,7 @@ function click_simgrid(a, b, c){
     for (let x = a;x <= 8;x++){
         for (let y = b; y <= 8; y++) {
             if (a-b == x-y){
-                line = scanline(x,y,line);
+                line.push(simgrid[x][y]);
             }
         }
     }
@@ -160,14 +154,17 @@ function click_simgrid(a, b, c){
         for (let x = a;x <= 8;x++){
             for (let y = b; y <= 8; y++) {
                 if (a-b == x-y){
-                    let element = document.getElementById(`row${x},column${y}`).className;
-                    if (element == cword(c)) {
+                    if (simgrid[x][y] == cword(c)) {
                         break breakloop;
-                    } else if (element == cword(c + 1)) {
-                        document.getElementById(`row${x},column${y}`).className = cword(c);
+                    } else if (simgrid[x][y] == cword(c + 1)) {
+                        simgrid[x][y] = cword(c);
                     }
                 }
             }
         }
     }
+
+
+    simgrid[a][b] = cword(c);
+    return simgrid;
 }

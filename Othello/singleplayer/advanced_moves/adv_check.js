@@ -1,5 +1,7 @@
-function analyse_simgrid(simgrid,c){
+function analyse_simgrid(simgrid, c){
+    // returns coordinates
 
+    let simcoordinates = [];
     for (g=1;g<=8;g++){
         for (h=1;h<=8;h++){
             let a = g;
@@ -8,7 +10,7 @@ function analyse_simgrid(simgrid,c){
             let moved = false;
 
 
-            line = [];
+            let line = [];
             for (let y = b; y >= 1; y--) {
                 line.push(simgrid[a][y]);
             }
@@ -16,7 +18,7 @@ function analyse_simgrid(simgrid,c){
             if (calculatearray(line, c)){
                 legalmove++;
                 if (!moved){
-                    coordinates.push([a,b]);
+                    simcoordinates.push([a,b]);
                     moved = true;
                 }
                 for (let y = b; y >= 1; y--) {
@@ -28,7 +30,6 @@ function analyse_simgrid(simgrid,c){
                 }
             }
 
-/*
             line = [];
             for (let y = b; y <= 8; y++) {
                 line.push(simgrid[a][y]);
@@ -36,14 +37,14 @@ function analyse_simgrid(simgrid,c){
             if (calculatearray(line, c)){
                 legalmove++;
                 if (!moved){
-                    coordinates.push([a,b]);
+                    simcoordinates.push([a,b]);
                     moved = true;
                 }
                 for (let y = b; y <= 8; y++) {
                     if (simgrid[a][y] == cword(c)) {
                         break;
                     } else if (simgrid[a][y] == cword(c)) {
-                        sim_tilevalue++;++;
+                        sim_tilevalue++;
                     }
                 }
             }
@@ -56,14 +57,14 @@ function analyse_simgrid(simgrid,c){
             if (calculatearray(line, c)){
                 legalmove++;
                 if (!moved){
-                    coordinates.push([a,b]);
+                    simcoordinates.push([a,b]);
                     moved = true;
                 }
                 for (let x = a;x >= 1;x--){
                     if (simgrid[x][b] == cword(c)) {
                         break;
                     } else if (simgrid[x][b] == cword(c)) {
-                        sim_tilevalue++;++;
+                        sim_tilevalue++;
                     }
                 }
             }
@@ -76,14 +77,14 @@ function analyse_simgrid(simgrid,c){
             if (calculatearray(line, c)){
                 legalmove++;
                 if (!moved){
-                    coordinates.push([a,b]);
+                    simcoordinates.push([a,b]);
                     moved = true;
                 } 
                 for (let x = a;x <= 8;x++){
                     if (simgrid[x][b] == cword(c)) {
                         break;
                     } else if (simgrid[x][b] == cword(c)) {
-                        sim_tilevalue++;++;
+                        sim_tilevalue++;
                     }
                 }
             }
@@ -100,7 +101,7 @@ function analyse_simgrid(simgrid,c){
             if (calculatearray(line, c)){
                 legalmove++;
                 if (!moved){
-                    coordinates.push([a,b]);
+                    simcoordinates.push([a,b]);
                     moved = true;
                 }
                 breakloop:
@@ -110,7 +111,7 @@ function analyse_simgrid(simgrid,c){
                             if (simgrid[x][y] == cword(c)) {
                                 break;
                             } else if (simgrid[x][y] == cword(c)) {
-                                sim_tilevalue++;++;
+                                sim_tilevalue++;
                             }
                         }
                     }
@@ -129,7 +130,7 @@ function analyse_simgrid(simgrid,c){
             if (calculatearray(line, c)){
                 legalmove++;
                 if (!moved){
-                    coordinates.push([a,b]);
+                    simcoordinates.push([a,b]);
                     moved = true;
                 }
                 breakloop:
@@ -139,7 +140,7 @@ function analyse_simgrid(simgrid,c){
                             if (simgrid[x][y] == cword(c)) {
                                 break;
                             } else if (simgrid[x][y] == cword(c)) {
-                                sim_tilevalue++;++;
+                                sim_tilevalue++;
                             }
                         }
                     }
@@ -159,7 +160,7 @@ function analyse_simgrid(simgrid,c){
             if (calculatearray(line, c)){
                 legalmove++;
                 if (!moved){
-                    coordinates.push([a,b]);
+                    simcoordinates.push([a,b]);
                     moved = true;
                 }
                 breakloop:
@@ -169,7 +170,7 @@ function analyse_simgrid(simgrid,c){
                             if (simgrid[x][y] == cword(c)) {
                                 break;
                             } else if (simgrid[x][y] == cword(c)) {
-                                sim_tilevalue++;++;
+                                sim_tilevalue++;
                             }
                         }
                     }
@@ -188,7 +189,7 @@ function analyse_simgrid(simgrid,c){
             if (calculatearray(line, c)){
                 legalmove++;
                 if (!moved){
-                    coordinates.push([a,b]);
+                    simcoordinates.push([a,b]);
                     moved = true;
                 }
                 breakloop:
@@ -198,23 +199,14 @@ function analyse_simgrid(simgrid,c){
                             if (simgrid[x][y] == cword(c)) {
                                 break;
                             } else if (simgrid[x][y] == cword(c)) {
-                                sim_tilevalue++;++;
+                                sim_tilevalue++;
                             }
                         }
                     }
                 }
-            }*/
-            if (legalmove==0){
-                if (pass == 1 || turn == 61){
-                    turn = "end";
-                }else{
-                    pass++;
-                }
-            }else{
-                pass = 0;
             }
-
-            bonuspoints(sim_tilevalue);
+            // check if end or skip. If yes, check the points
+            // bonuspoints(sim_tilevalue);
             // set sim_tilevalue to coordinates
         }
     }
@@ -224,7 +216,7 @@ function analyse_simgrid(simgrid,c){
 
 
 
-    // return tempcoordinates;
+    return simcoordinates;
 }
 
 function bonuspoints(sim_tilevalue){
