@@ -54,10 +54,23 @@ for(let j = 0; j <= 1; j++){ // number of moves forward
 
 
         // click_simgrid
-        simgrid_main[j][`${simcoordinates_main[j-1][k][0]},${simcoordinates_main[j-1][k][1]}`] = click_simgrid(simcoordinates_main[j-1][k][0], simcoordinates_main[j-1][k][1], simturn, simgrid_main[0]);
+        // simgrid_main[j][`${simcoordinates_main[j-1][k][0]},${simcoordinates_main[j-1][k][1]}`] = click_simgrid(simcoordinates_main[j-1][k][0], simcoordinates_main[j-1][k][1], simturn, simgrid_main[0]);
+
+
+        aaa = [];
+        aaa[0] = create_simgrid();
         
+        aaa[1] = {};
+        
+        var temps = aaa[0];
+        // temps = create_simgrid();
+        aaa[1]['3,4'] = click_simgrid(3, 4, simturn, temps);
+
+        console.log(aaa);
+
+
         // }
-        console.log(simgrid_main);
+        // console.log(simgrid_main);
     }
 }
 
