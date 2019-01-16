@@ -62,7 +62,7 @@ for(let j = 0; j <= 1; j++){ // number of moves forward
         
         aaa[1] = {};
         
-        var temps = aaa[0];
+        var temps = JSON.parse(JSON.stringify(aaa[0]));
         // temps = create_simgrid();
         aaa[1]['3,4'] = click_simgrid(3, 4, simturn, temps);
 
