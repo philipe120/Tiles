@@ -34,9 +34,9 @@ tips and trick?
 // we want to get pieces to be stable?
 
 simgrid_main = [];
-simturn = 1;
-for(let j = 0; j <= 1; j++){ // number of moves forward
 
+for(let j = 0; j <= 1; j++){ // number of moves forward
+    let simturn = j+turn;
     // console.log(simgrid_main[0]);
     // console.log(simgrid_main[1]);
 
@@ -46,38 +46,25 @@ for(let j = 0; j <= 1; j++){ // number of moves forward
         simcoordinates_main[0] = analyse_simgrid(simgrid_main[0], simturn);
 
     }else if(j == 1){
-        // something goes wrong here
-        let k = 0;
-        j = 1;
+
         simgrid_main[j] = {};
-        // for(let k = 0; k < simcoordinates_main[j-1].length; k++){
+        simcoordinates_main[j] = {};
+
+        for(let k = 0; k < simcoordinates_main[j-1].length; k++){
+
+            let temps = JSON.parse(JSON.stringify(simgrid_main[0]));
+            simgrid_main[j][`${simcoordinates_main[j-1][k][0]},${simcoordinates_main[j-1][k][1]}`] = click_simgrid(simcoordinates_main[j-1][k][0], simcoordinates_main[j-1][k][1], simturn-1, temps);
+            simcoordinates_main[j][`${simcoordinates_main[j-1][k][0]},${simcoordinates_main[j-1][k][1]}`] = analyse_simgrid(simgrid_main[j][`${simcoordinates_main[j-1][k][0]},${simcoordinates_main[j-1][k][1]}`], simturn);
+
+        }
+    }else if (j == 2){
 
 
-        // click_simgrid
-        // simgrid_main[j][`${simcoordinates_main[j-1][k][0]},${simcoordinates_main[j-1][k][1]}`] = click_simgrid(simcoordinates_main[j-1][k][0], simcoordinates_main[j-1][k][1], simturn, simgrid_main[0]);
-
-
-        aaa = [];
-        aaa[0] = create_simgrid();
-        
-        aaa[1] = {};
-        
-        var temps = JSON.parse(JSON.stringify(aaa[0]));
-        // temps = create_simgrid();
-        aaa[1]['3,4'] = click_simgrid(3, 4, simturn, temps);
-
-        console.log(aaa);
-
-
-        // }
-        // console.log(simgrid_main);
     }
 }
 
-
-// console.log(simgrid_main);
-
-// console.log(simcoordinates_main);
+console.log(simgrid_main);
+console.log(simcoordinates_main);
 
 
 
