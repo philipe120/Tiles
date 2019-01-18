@@ -35,7 +35,7 @@ tips and trick?
 
 simgrid_main = [];
 
-for(let j = 0; j <= 1; j++){ // number of moves forward
+for(let j = 0; j <= 2; j++){ // number of moves forward
     let simturn = j+turn;
     // console.log(simgrid_main[0]);
     // console.log(simgrid_main[1]);
@@ -45,21 +45,35 @@ for(let j = 0; j <= 1; j++){ // number of moves forward
         simgrid_main[0] = create_simgrid();
         simcoordinates_main[0] = analyse_simgrid(simgrid_main[0], simturn);
 
-    }else if(j == 1){
+    }else{
 
         simgrid_main[j] = {};
         simcoordinates_main[j] = {};
 
-        for(let k = 0; k < simcoordinates_main[j-1].length; k++){
+        for(let k = 0; k < simcoordinates_main[0].length; k++){
 
-            let temps = JSON.parse(JSON.stringify(simgrid_main[0]));
-            simgrid_main[j][`${simcoordinates_main[j-1][k][0]},${simcoordinates_main[j-1][k][1]}`] = click_simgrid(simcoordinates_main[j-1][k][0], simcoordinates_main[j-1][k][1], simturn-1, temps);
-            simcoordinates_main[j][`${simcoordinates_main[j-1][k][0]},${simcoordinates_main[j-1][k][1]}`] = analyse_simgrid(simgrid_main[j][`${simcoordinates_main[j-1][k][0]},${simcoordinates_main[j-1][k][1]}`], simturn);
+            if (j == 1){
+                let x = simcoordinates_main[j-1][k][0];
+                let y = simcoordinates_main[j-1][k][1];
+                let grid = JSON.parse(JSON.stringify(simgrid_main[0]));
 
+                simgrid_main[j][`${x},${y}`] = click_simgrid(x, y, simturn-1, grid);
+                simcoordinates_main[j][`${x},${y}`] = analyse_simgrid(simgrid_main[j][`${x},${y}`], simturn);
+
+            }else if (j == 2){
+
+                simgrid_main[j][`${x},${y}`] = {'a':21};
+                simcoordinates_main[j][`${x},${y}`] = {'b':213};
+                console.log(k);
+
+
+                for (let l = 0; l < simcoordinates_main[j-1][`${x},${y}`].length; l++){
+
+                }
+                
+                
+            }
         }
-    }else if (j == 2){
-
-
     }
 }
 
