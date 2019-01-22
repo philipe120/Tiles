@@ -35,7 +35,7 @@ tips and trick?
 
 simgrid_main = [];
 
-for(let j = 0; j <= 2; j++){ // number of moves forward
+for(let j = 0; j <= 3; j++){ // number of moves forward
     let simturn = j+turn;
     // console.log(simgrid_main[0]);
     // console.log(simgrid_main[1]);
@@ -52,26 +52,61 @@ for(let j = 0; j <= 2; j++){ // number of moves forward
 
         for(let k = 0; k < simcoordinates_main[0].length; k++){
 
-            if (j == 1){
-                let x = simcoordinates_main[j-1][k][0];
-                let y = simcoordinates_main[j-1][k][1];
-                let grid = JSON.parse(JSON.stringify(simgrid_main[0]));
+            let x = simcoordinates_main[0][k][0];
+            let y = simcoordinates_main[0][k][1];
 
+            if (j == 1){
+                let grid = JSON.parse(JSON.stringify(simgrid_main[0]));
                 simgrid_main[j][`${x},${y}`] = click_simgrid(x, y, simturn-1, grid);
                 simcoordinates_main[j][`${x},${y}`] = analyse_simgrid(simgrid_main[j][`${x},${y}`], simturn);
+            }else{
 
-            }else if (j == 2){
+                simgrid_main[j][`${x},${y}`] = {};
+                simcoordinates_main[j][`${x},${y}`] = {};
 
-                simgrid_main[j][`${x},${y}`] = {'a':21};
-                simcoordinates_main[j][`${x},${y}`] = {'b':213};
-                console.log(k);
+                for (let l = 0; l < simcoordinates_main[1][`${x},${y}`].length; l++){
 
+                    let a = simcoordinates_main[1][`${x},${y}`][l][0];
+                    let b = simcoordinates_main[1][`${x},${y}`][l][1];
 
-                for (let l = 0; l < simcoordinates_main[j-1][`${x},${y}`].length; l++){
+                    if (j == 2){
+                        let grid = JSON.parse(JSON.stringify(simgrid_main[1][`${x},${y}`]));
+                        simgrid_main[j][`${x},${y}`][`${a},${b}`] = click_simgrid(a, b, simturn-1, grid);
+                        simcoordinates_main[j][`${x},${y}`][`${a},${b}`] = analyse_simgrid(simgrid_main[j][`${x},${y}`][`${a},${b}`], simturn);
+                    }else{
 
+                        simgrid_main[j][`${x},${y}`][`${a},${b}`] = {};
+                        simcoordinates_main[j][`${x},${y}`][`${a},${b}`] = {};
+
+                        for (let m = 0; m < simcoordinates_main[2][`${x},${y}`][`${a},${b}`].length; m++){                            
+
+                            let c = simcoordinates_main[2][`${x},${y}`][`${a},${b}`][m][0];
+                            let d = simcoordinates_main[2][`${x},${y}`][`${a},${b}`][m][1];
+
+                            if (j == 3){
+                                let grid = JSON.parse(JSON.stringify(simgrid_main[2][`${x},${y}`][`${a},${b}`]));
+                                simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`] = click_simgrid(c, d, simturn-1, grid);
+                                simcoordinates_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`] = analyse_simgrid(simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`], simturn);
+                            }else{
+
+                                simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`] = {};
+                                simcoordinates_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`] = {};
+
+                                for (let n = 0; n < simcoordinates_main[j-1][`${x},${y}`][`${a},${b}`][`${c},${d}`].length; n++){
+
+                                    let e = simcoordinates_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`][n][0];
+                                    let f = simcoordinates_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`][n][1];
+
+                                    if (j == 4){
+                                        let grid = JSON.parse(JSON.stringify(simgrid_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`]));
+                                        simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`] = click_simgrid(e, f, simturn-1, grid);
+                                        simcoordinates_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`] = analyse_simgrid(simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`], simturn);
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-                
-                
             }
         }
     }
