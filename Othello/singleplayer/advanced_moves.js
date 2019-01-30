@@ -41,12 +41,13 @@ for(let j = 0; j <= 3; j++){ // number of moves forward
     if(j == 0){
         
         simgrid_main[0] = create_simgrid();
-        simcoordinates_main[0] = analyse_simgrid(simgrid_main[0], simturn);
+        [simcoordinates_main[0],] = analyse_simgrid(simgrid_main[0], simturn);
 
     }else{
 
         simgrid_main[j] = {};
         simcoordinates_main[j] = {};
+        simpoints_main[j] = {};
 
         for(let k = 0; k < simcoordinates_main[0].length; k++){
 
@@ -56,11 +57,12 @@ for(let j = 0; j <= 3; j++){ // number of moves forward
             if (j == 1){
                 let grid = JSON.parse(JSON.stringify(simgrid_main[0]));
                 simgrid_main[j][`${x},${y}`] = click_simgrid(x, y, simturn-1, grid);
-                simcoordinates_main[j][`${x},${y}`] = analyse_simgrid(simgrid_main[j][`${x},${y}`], simturn);
+                [simcoordinates_main[j][`${x},${y}`],simpoints_main[j][`${x},${y}`]] = analyse_simgrid(simgrid_main[j][`${x},${y}`], simturn);
             }else{
 
                 simgrid_main[j][`${x},${y}`] = {};
                 simcoordinates_main[j][`${x},${y}`] = {};
+                simpoints_main[j][`${x},${y}`] = {};
 
                 for (let l = 0; l < simcoordinates_main[1][`${x},${y}`].length; l++){
 
@@ -70,11 +72,12 @@ for(let j = 0; j <= 3; j++){ // number of moves forward
                     if (j == 2){
                         let grid = JSON.parse(JSON.stringify(simgrid_main[1][`${x},${y}`]));
                         simgrid_main[j][`${x},${y}`][`${a},${b}`] = click_simgrid(a, b, simturn-1, grid);
-                        simcoordinates_main[j][`${x},${y}`][`${a},${b}`] = analyse_simgrid(simgrid_main[j][`${x},${y}`][`${a},${b}`], simturn);
+                        [simcoordinates_main[j][`${x},${y}`][`${a},${b}`],simpoints_main[j][`${x},${y}`][`${a},${b}`]] = analyse_simgrid(simgrid_main[j][`${x},${y}`][`${a},${b}`], simturn);
                     }else{
 
                         simgrid_main[j][`${x},${y}`][`${a},${b}`] = {};
                         simcoordinates_main[j][`${x},${y}`][`${a},${b}`] = {};
+                        simpoints_main[j][`${x},${y}`][`${a},${b}`] = {};
 
                         for (let m = 0; m < simcoordinates_main[2][`${x},${y}`][`${a},${b}`].length; m++){                            
 
@@ -84,11 +87,12 @@ for(let j = 0; j <= 3; j++){ // number of moves forward
                             if (j == 3){
                                 let grid = JSON.parse(JSON.stringify(simgrid_main[2][`${x},${y}`][`${a},${b}`]));
                                 simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`] = click_simgrid(c, d, simturn-1, grid);
-                                simcoordinates_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`] = analyse_simgrid(simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`], simturn);
+                                [simcoordinates_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`],simpoints_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`]] = analyse_simgrid(simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`], simturn);
                             }else{
 
                                 simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`] = {};
                                 simcoordinates_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`] = {};
+                                simpoints_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`] = {};
 
                                 for (let n = 0; n < simcoordinates_main[j-1][`${x},${y}`][`${a},${b}`][`${c},${d}`].length; n++){
 
@@ -98,7 +102,7 @@ for(let j = 0; j <= 3; j++){ // number of moves forward
                                     if (j == 4){
                                         let grid = JSON.parse(JSON.stringify(simgrid_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`]));
                                         simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`] = click_simgrid(e, f, simturn-1, grid);
-                                        simcoordinates_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`] = analyse_simgrid(simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`], simturn);
+                                        [simcoordinates_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`],simpoints_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`]] = analyse_simgrid(simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`], simturn);
                                     }
                                 }
                             }
