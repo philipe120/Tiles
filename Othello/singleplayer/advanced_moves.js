@@ -37,8 +37,6 @@ simgrid_main = [];
 
 for(let j = 0; j <= 3; j++){ // number of moves forward
     let simturn = j+turn;
-    // console.log(simgrid_main[0]);
-    // console.log(simgrid_main[1]);
 
     if(j == 0){
         
@@ -114,7 +112,7 @@ for(let j = 0; j <= 3; j++){ // number of moves forward
 
 console.log(simgrid_main);
 console.log(simcoordinates_main);
-
+console.log(simpoints_main);
 
 
 

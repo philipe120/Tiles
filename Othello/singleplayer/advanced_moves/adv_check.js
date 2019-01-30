@@ -207,23 +207,24 @@ function analyse_simgrid(simgrid, c){
                 }
             }
             // check if end or skip. If yes, check the points
-            // bonuspoints(sim_tilevalue);
+
+            sim_tilevalue += legalmove;
+
+
+
+
+            sim_tilevalue = bonuspoints(a,b,c,sim_tilevalue);
             // set sim_tilevalue to coordinates
-            
         }
     }
-
-
-
-
-
-
     return simcoordinates;
 }
 
-function bonuspoints(sim_tilevalue){
+function bonuspoints(a,b,sim_tilevalue){
 
+
+    simpoints_main = 1;
     // check other point factors
     // includes()
-
+    return sim_tilevalue;
 }
