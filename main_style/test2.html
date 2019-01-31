@@ -30,6 +30,29 @@
     }, 1000);
 });
     </script>
+    <script>
+      const body = document.body;
+const btn = document.querySelectorAll('.button')[0];
+
+btn.addEventListener('mouseenter', () => {
+  body.classList.add('show');
+});
+
+btn.addEventListener('mouseleave', () => {
+  body.classList.remove('show');
+});
+    </script>  
+ <!--    <style>
+/* customizable snowflake styling */
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px #000;
+}
+
+@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(80px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}.snowflake:nth-of-type(10){left:25%;-webkit-animation-delay:2s,0s;animation-delay:2s,0s}.snowflake:nth-of-type(11){left:65%;-webkit-animation-delay:4s,2.5s;animation-delay:4s,2.5s}
+</style> -->
 
 	</head>	
 
@@ -39,29 +62,48 @@
 
 
 <body>
-<!-- id="page-top" -->
-<!-- <nav class="navbar navbar-expand-lg navbar-light ">
-  <a class="navbar-brand" href="#">
-      <img src="images/logo_full.png" class="img-responsive">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Games
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Battleship</a>
-          <a class="dropdown-item" href="#">Orthello</a>
-        </div>
-      </li>
-    </ul>
+<!-- <div class="snowflake">
+  ❅
   </div>
-</nav> -->
+  <div class="snowflake">
+  ❆
+  </div>
+  <div class="snowflake">
+  ❅
+  </div>
+  <div class="snowflake">
+  ❆
+  </div>
+  <div class="snowflake">
+  ❅
+  </div>
+  <div class="snowflake">
+  ❆
+  </div>
+  <div class="snowflake">
+    ❅
+  </div>
+  <div class="snowflake">
+    ❆
+  </div>
+  <div class="snowflake">
+    ❅
+  </div>
+  <div class="snowflake">
+    ❆
+  </div>
+  <div class="snowflake">
+    ❅
+  </div>
+  <div class="snowflake">
+    ❆
+  </div>
+</div> -->
 
+
+
+  
+<header>
 <nav class="navbar navbar-dark fixed-top navbar-expand-md navbar-no-bg">
     <div class="container">
         <a class="navbar-brand" href="test2.html"><img src="images/logo_full.png" class="img-responsive"></a>
@@ -79,12 +121,12 @@
                 <li class="nav-item">
                     <a class="nav-link scroll-link" href="#section-2">Item 2</a>
                 </li> -->
-                <li class="nav-item">
+             <!--    <li class="nav-item">
                     <a class="nav-link scroll-link" id="2" href="#">Item 3</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link scroll-link" id="3" href="#">Item 4</a>
-                </li>
+                </li> -->
                 
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -102,55 +144,47 @@
         </div>
       </div>
 </nav>
-<!-- 
-<div class="blurred-box">  
-      <div class="user-login-box">
-        
-      </div>  
-    </div>  -->   
+</header>
+
+<!-- Text on first page -->
 <div class="section1" id="1">
-<!-- <div class="container-fluid">  -->
 <div class="mid">
-<h2 class="highlight">Developer Project</h2>
-<!-- <div class="mid2"> -->
-        <h3 class="highlight">By Tiles</h3>
-<!-- </div> -->
+<h2 id="font_title">Developer Project</h2>
+<h3 id="font_title">Tiles</h3>
 </div>
-<!-- <div class="ag">     
-    <div class="hov">
-     
-    <button class="bot">si</button>
-    </div>
-  </div> -->
+</div>
 
-<!-- <div class="container-fluid"> -->
-<!-- <div class="split left"> -->
-  <div class="left">
-<!-- <div class="archiveLogin"> -->
+
+<div class="left">
   <div class="bot">
-  <form action="../Othello/index.html">  
-    <button id="buttonText" onmouseover="firstan()" onmouseout="firstan()">Othello </button>          
-  </form>  
-<!-- </div> -->
+     <div class="button" onmouseover="firstan()" onmouseout="firstan()">
+  <!--  <form action="../Othello/index.html">  
+    <button id="buttonText" onmouseover="firstan()" onmouseout="firstan()">Othello </button>     
+    </form>   -->
+  <a href="index.html">
+    Othello
+    <span class="move">›</span>
+  </a>
+  <div class="cover"></div>
+</div>
   </div>
-  </div>
-<!-- </div> -->
+</div>
 
-<!-- <div class="split right"> -->
-<!-- 
-  <div class="centered"> -->
-  <!-- <div class="hov"> -->
-  <div class="right">  
+<div class="right">  
   <div class="bot"> 
-  <form action="../battleships/index.html">   
+    <div class="button" onmouseover="secondan()" onmouseout="secondan()">
+    <!-- <form action="../battleships/index.html">   
     <button id="buttonText" onmouseover="secondan()" onmouseout="secondan()">Battleships</button>
-  </form>   
-  <!-- </div> -->
+    </form>    -->
+    
+  <a href="index.html">
+    Battleship
+    <span class="move">›</span>
+  </a>
+  <div class="cover"></div>
+</div>
   </div>  
-  </div>
-<!--   </div> -->
-<!-- </div> -->
-<!-- </div> -->
+</div>
 
 
     Section 1
@@ -209,6 +243,16 @@
       </div>
     </header>
  -->
+
+
+
+
+
+
+
+
+
+
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>

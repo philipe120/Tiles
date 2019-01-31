@@ -13,7 +13,7 @@ opacity: 1;
  height: 100%;
  letter-spacing: 0.02em;
   font-weight: 400;
- -webkit-font-smoothing: antialiased; 
+ -webkit-font-smoothing: antialiased;
 }
 
 *{
@@ -236,6 +236,13 @@ h2 {
   text-rendering: optimizeLegibility;
 }
 
+h3 {
+    text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+
+
 /*.deepshd {
   color: #e0dfdc;
   letter-spacing: .1em;
@@ -361,7 +368,7 @@ h2 {
     opacity:1;
     text-align: center;
     margin-left: 3px;*/
-    
+/*    
   box-sizing: border-box;
   appearance: none;
   background-color: transparent;
@@ -380,15 +387,32 @@ h2 {
   text-align: center;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  font-weight: 700;*/
+ /* z-index: 99;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  background: linear-gradient(45deg, #B388EB, #8093F1);
+  border-radius: 20px;
+  color: #FFF;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 200;*/
+  padding: 0;
+border: none;
+background: none;
 }
 #buttonText:hover {
-    background-color: rgba(165, 122, 255, 0.7);
-    border: 0 none;
+   /* background-color: rgba(165, 122, 255, 0.7);
+    -webkit-transition: width 2s;*/
+/*    border: 0 none;*/
 }
 
 body{
-    transition: background-image 1.5s ease;
+   transition: background-image 1s ease-in-out;
 }
 
 .body1{
@@ -412,13 +436,13 @@ body{
 }
 
 .mid{
-  left: 0;
+/*  left: 0;
     line-height: 200px;
     margin: auto;
     margin-top: -100px;
-    position: absolute;
-    top: 50%;
-    width: 100%;
+    position: absolute;*/
+  /*  top: %;
+    width: 100%;*/
     text-align: center;
 }
 
@@ -438,12 +462,12 @@ body{
 
 .section1 {
     height: 100%;
-    padding-top: 35px;
+    padding-top: 35vh;
 }
 
 .section2 {
     height: 200%;
-    padding-top: 35px;
+    padding-top: 10vh;
     background-color: #75b4c5;
     width: 100%
 }
@@ -462,14 +486,15 @@ font-size: 20px;
 letter-spacing: .5px;
 line-height: 1.6em;
 color: #292d40;
+margin-bottom: 4vh;
 }
 
 #logo {
  text-align:center;
  height: 70%
  width: 70%;
- margin-top: 10%;
- margin-bottom: 40px;
+/* margin-top: 5vh;*/
+ margin-bottom: 10vh;
 }
 
 #imageframe{
@@ -494,7 +519,7 @@ p {
 #textlimit {
   word-wrap: normal | break-word;
   margin: auto;
-  width: 50%;
+  width: 60%;
   height: 70%;
 }
 
@@ -508,3 +533,80 @@ p {
   width: 60%;
   margin-bottom: 10%;
 }
+
+#font_title{
+  font-family: 'Source Sans Pro';
+      font-weight: 900;
+    color: #B3D6D3;
+    font-size: 9vh;
+  opacity: 0.9;
+
+}
+
+
+.button {
+  border: 2px solid #2e2e2e;
+  cursor: pointer;
+  letter-spacing: 0.2125rem;
+  overflow: hidden;
+  padding: 3vh 5vw;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.button a {
+  color: #969696;
+  font-family: "Varela Round";
+  text-decoration: none;
+  text-align: center;
+  font-size: 1vw;
+}
+
+.button .cover {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 100px;
+  position: absolute;
+  transform: translate3d(-120%, -50px, 0) rotate3d(0, 0, 1, 45deg);
+  transition: all 1.4s cubic-bezier(0.19, 1, 0.22, 1);
+  width: 200px;
+}
+
+.button .shift {
+  display: inline-block;
+  transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: #fff;
+  box-shadow: 0 0 5px rgba(255, 245, 245, 0.8);
+  transition: background 0s;
+}
+
+.button:hover a {
+  color: #fff;
+}
+
+.button:hover .cover {
+  background-color: #fff;
+  transform: translate3d(120%, -100px, 0) rotate3d(0, 0, 1, 90deg);
+}
+
+
+
+.button:active {
+  background-color: #fff;
+}
+
+.button:active a {
+  color: #202020;
+}
+
+body {
+  
+}
+
+
