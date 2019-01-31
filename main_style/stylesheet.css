@@ -82,7 +82,7 @@ body {
 .navbar-dark .navbar-nav {
     font-size: 15px;
     color: #fff;
-    text-transform: uppercase;
+  /*  text-transform: uppercase;*/
 }
  
 .navbar-dark .navbar-nav .nav-link {
@@ -127,8 +127,9 @@ body {
 }
 
 
-
-
+.navbar-nav > li > .dropdown-menu {  background-color: #a7cccd;
+  opacity: 0.75;
+ }
 
 
 
@@ -416,7 +417,11 @@ body{
 }
 
 .body1{
-    background-image: url(images/train.jpg);
+    background-image: url(images/battleship_preview.png);
+    opacity: ;
+    background-position: center;
+    background-repeat: no-repeat;
+
 /*    color: white;*/
     
 }
@@ -466,9 +471,14 @@ body{
 }
 
 .section2 {
-    height: 200%;
-    padding-top: 10vh;
+    height: 275%;
+    padding-top: 15vh;
     background-color: #75b4c5;
+
+/*blue: #75b4c5;
+pink: #eabeaf;*/
+
+
     width: 100%
 }
 
@@ -494,15 +504,15 @@ margin-bottom: 4vh;
  height: 70%
  width: 70%;
 /* margin-top: 5vh;*/
- margin-bottom: 10vh;
+ margin-bottom: 7vh;
 }
 
 #imageframe{
   /* background:transparent;
     padding:8px;
     border:3px solid #999999;*/
-    border: 2px solid #292d40;
-  border-radius: 4px;
+/*    border: 2px solid #292d40;
+  border-radius: 4px;*/
   padding: 5px;
   width: 150px;
 }
@@ -521,6 +531,8 @@ p {
   margin: auto;
   width: 60%;
   height: 70%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #imageframe2{
@@ -574,9 +586,9 @@ p {
   width: 200px;
 }
 
-.button .shift {
+.button .move {
   display: inline-block;
-  transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 0.9s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .button:hover {
@@ -609,4 +621,11 @@ body {
   
 }
 
+.red {
+  color: #b91c1c;
 
+}
+
+.underline {
+
+}
