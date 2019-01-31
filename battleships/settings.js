@@ -2,8 +2,12 @@ const grey = "rgb(128, 128, 128)";
 const red = "rgb(255, 0, 0)";
 
 let game = {
+    end: false,
     turn: 1,
     currentPlayer: 1, // 1 or 2
+    get targetPlayer() {
+        return game.currentPlayer == 1 ? 2 : 1;
+    },
     get listShips() {
         return Object.keys(this.ships);
     },
@@ -28,11 +32,25 @@ let game = {
         name: "",
         isHuman: true, // should always be true
         field: [],
+        fleet: {
+            carrier: 5,
+            battleship: 4,
+            cruiser: 3,
+            submarine: 3,
+            destroyer: 2,
+        },
     },
     player2: {
         name: "",
         isHuman: true,
         field: [],
+        fleet: {
+            carrier: 5,
+            battleship: 4,
+            cruiser: 3,
+            submarine: 3,
+            destroyer: 2,
+        }
     },
     field: {
         height: 10,

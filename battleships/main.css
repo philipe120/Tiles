@@ -1,12 +1,4 @@
-.inblock {
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-.center {
+.center, #launch {
     display: block;
     padding: 0;
     margin: 0 auto;
@@ -16,6 +8,7 @@
 #launch {
     width: 50%;
     padding: 1vh 0;
+    margin-top: 2vh;
 }
 
 #info {
