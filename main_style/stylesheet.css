@@ -244,7 +244,7 @@ background: none;
   font-weight: 600;
   font-size: 25px;
  /* line-height: 1.7;*/
-  color: #356f94;
+  /*color: #356f94;*/
   display: block;
     font-size: 3em;
    /* margin-block-start: 0.67em;
@@ -254,8 +254,8 @@ background: none;
     /*font-weight: bold;*/
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: lightblue;
+    color: transparent;
 }
-
 
 
 
@@ -296,6 +296,7 @@ body{
   /*  top: %;
     width: 100%;*/
     text-align: center;
+    text-transform: none;
 }
 
 .mid2{
@@ -318,7 +319,7 @@ body{
 }
 
 .section2 {
-    height: 275%;
+    height: 300%;
     padding-top: 15vh;
     background-color: #75b4c5;
 
@@ -331,9 +332,15 @@ pink: #eabeaf;*/
 
 .section3 {
    /* height: 100%;*/
-    padding-top: 35px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 /*    width: 100%;*/
-    background-color: #44899a;
+    /*background-color: #44899a;*/
+    background-image: url(images/floor2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
 #font1 {
@@ -387,12 +394,15 @@ p {
 }
 
 #font_title{
-  font-family: 'Source Sans Pro';
+  /*font-family: 'Source Sans Pro';
       font-weight: 900;
     color: #B3D6D3;
     font-size: 9vh;
-  opacity: 0.9;
+  opacity: 0.9;*/
+  font : normal normal normal 50px/1.4em georgia,palatino,'book antiqua','palatino linotype',serif;
+  text-transform: none;
 }
+
 
 
 .button {
@@ -408,7 +418,9 @@ p {
 }
 
 .button a {
-  color: #969696;
+  /*color: #969696;*/
+  color: #000000b0;
+  font-weight: bold;
   font-family: "Varela Round";
   text-decoration: none;
   text-align: center;
@@ -534,3 +546,21 @@ background-size: cover;
   color: #292d40;
 }
 
+.three_d {
+  display: inline;
+  position: relative;
+  font: 200px Helvetica, Sans-Serif;
+  letter-spacing: -5px;
+  color: rgba(0,0,255,0.5); 
+}
+.three_d:after {
+  position: absolute; left: 10px; top: 5px;
+  color: rgba(255,0,0,0.5);   
+}
+
+.square {
+  background-color: #fff;
+}
+
+/*  width: 60%;*/
+/*  margin: 0;*/
