@@ -137,27 +137,6 @@ body {
 
 
 
-
-
-
-
-
-
-/*button {
-	margin-top : 50px;
-}*/
-
-.ag:hover {
-	background-image: url(images/game_console.jpg);
-	-webkit-transition: background 5s;
-	transition: background 300ms ease-in 200ms;
-}
-.og:hover {
-	background-image: url(images/train.jpg);
-  	transition: 7s;
-
-}
-
 #page-wrap { 
   background-color: gray;
   /*position: absolute;*/
@@ -483,9 +462,10 @@ pink: #eabeaf;*/
 }
 
 .section3 {
-    height: 100%;
+   /* height: 100%;*/
     padding-top: 35px;
-    width: 100%
+/*    width: 100%;*/
+    background-color: #44899a;
 }
 
 #font1 {
@@ -552,7 +532,6 @@ p {
     color: #B3D6D3;
     font-size: 9vh;
   opacity: 0.9;
-
 }
 
 
@@ -628,4 +607,88 @@ body {
 
 .underline {
 
+}
+
+
+.content-section {
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+}
+
+.content-section-heading h2 {
+  font-size: 3rem;
+}
+
+.content-section-heading h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+
+
+.text-faded {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+.service-icon {
+background-image: url(images/daniel.jpg);
+background-size: cover;
+  color: #1D809F;
+  height: 7rem;
+  width: 7rem;
+  display: block;
+  line-height: 7.5rem;
+  font-size: 2.25rem;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+.service-icon2 {
+background-image: url(images/zero.jpg);
+background-size: cover;
+  color: #1D809F;
+  height: 7rem;
+  width: 7rem;
+  display: block;
+  line-height: 7.5rem;
+  font-size: 2.25rem;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.service-icon3 {
+background-image: url(images/wilson.png);
+background-size: cover;
+  color: #1D809F;
+  height: 7rem;
+  width: 7rem;
+  display: block;
+  line-height: 7.5rem;
+  font-size: 2.25rem;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+.mb-5 {
+  text-transform: none;
+}
+
+.mb-0{
+  color: #292d40;
+}
+
+.container{
+  color: #292d40;
 }
