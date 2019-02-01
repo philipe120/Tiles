@@ -161,10 +161,9 @@ h3 {
   /*letter-spacing: .1em;
   text-shadow: -1px -1px 1px #111, 2px 2px 1px #ffffffc4;*/
   font-family: 'Lato', sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 25px;
  /* line-height: 1.7;*/
-  color: transparent;
   display: block;
     font-size: 3em;
    /* margin-block-start: 0.67em;
@@ -172,7 +171,6 @@ h3 {
     margin-inline-start: 0px;
     margin-inline-end: 0px;*/
     /*font-weight: bold;*/
-      color: transparent;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: lightblue;
 }
@@ -254,7 +252,6 @@ background: none;
     margin-inline-start: 0px;
     margin-inline-end: 0px;*/
     /*font-weight: bold;*/
-
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: lightblue;
 }
