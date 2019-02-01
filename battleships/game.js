@@ -141,19 +141,19 @@ function shoot(x, y) {
         let targetData = game[`player${game.targetPlayer}`].field[x][y];
         if (targetData) {
             // if shot lands on a ship
+            game[`player${game.targetPlayer}`].field[x][y] = 'hit';
+            $targetCell.css('background-color', red);
+            $('#info-small').text("Enemy ship hit!");
             game[`player${game.targetPlayer}`].fleet[targetData]--;
             if(game[`player${game.targetPlayer}`].fleet[targetData] == 0) {
                 delete game[`player${game.targetPlayer}`].fleet[targetData];
-                $('#reports').append(`Player ${game.targetPlayer}'s ${targetData} has been sunk!`);
+                $('#reports').append(`<p>Player ${game.targetPlayer}'s ${targetData} has been sunk!<p>`);
                 // if last ship is destroyed
                 if (Object.keys(game[`player${game.targetPlayer}`].fleet).length == 0) {
                     game.end = true;
                     return false;
                 }
             }
-            game[`player${game.targetPlayer}`].field[x][y] = 'hit';
-            $targetCell.css('background-color', red);
-            $('#info-small').text("Enemy ship hit!");
         } else {
             // if shot lands in water
             $targetCell.text("miss");
