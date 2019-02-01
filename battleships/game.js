@@ -68,6 +68,8 @@ function clickDetect() {
             }
             if (game.end) {
                 game.cursor.action = false;
+                $('#info-main').text(`PLAYER ${game.currentPlayer} wins!`);
+                $('#info-small').text(`The final ship of player ${game.currentPlayer}'s has been sunk!`);
                 $('#reports').append(`Player ${game.currentPlayer} is victorious!`);
                 setTimeout(function() {
                     location.reload();
