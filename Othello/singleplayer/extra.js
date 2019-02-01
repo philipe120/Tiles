@@ -36,8 +36,8 @@ hard = algothim that analyse moves in advance
 
     */
     if (mode == "easy"){
-        // let random = Math.floor((Math.random() * 2000)+100);
-        randomtime = 100;
+        let randomtime = Math.floor((Math.random() * 2000)+100);
+
         setTimeout(() => {
             let random = Math.floor((Math.random() * coordinates.length));
             mouseclick(coordinates[random][0],coordinates[random][1]);
@@ -66,22 +66,22 @@ hard = algothim that analyse moves in advance
         }
 
         if (cornercoordinates.length != 0){
-            // let random = Math.floor((Math.random() * 2000)+1000);
-            randomtime = 100;
+            let randomtime = Math.floor((Math.random() * 2000)+1000);
+
             setTimeout(() => {
                 let random = Math.floor((Math.random() * cornercoordinates.length));
                 mouseclick(cornercoordinates[random][0],cornercoordinates[random][1]);
             }, randomtime);
         }else if (sidecoordinates.length != 0){
-            // let random = Math.floor((Math.random() * 2000)+1000);
-            randomtime = 100;
+            let randomtime = Math.floor((Math.random() * 2000)+1000);
+
             setTimeout(() => {
                 let random = Math.floor((Math.random() * sidecoordinates.length));
                 mouseclick(sidecoordinates[random][0],sidecoordinates[random][1]);
             }, randomtime);
         }else{
-            // let random = Math.floor((Math.random() * 2000)+1000);
-            randomtime = 100;
+            let randomtime = Math.floor((Math.random() * 2000)+1000);
+
             setTimeout(() => {
                 if (Math.floor((Math.random()))){
                     let random = Math.floor((Math.random() * points[points.length-1].length));
