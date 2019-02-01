@@ -16,8 +16,8 @@ function start() {
             grid += `</tr id = 'row${x}'><tr>`;
         }
     }
-    grid += `</tr></table><button id = "automove" onclick="automove()">Auto Move</button>
-    <button onclick="reset()">Reset</button>`;
+    grid += `</tr></table><div class = "button"><button id = "automove" onclick="automove()">Auto Move</button>
+    <button onclick="reset()">Reset</button></div>`;
 
     document.getElementById("demo").innerHTML = grid;
 
