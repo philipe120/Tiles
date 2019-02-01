@@ -20,6 +20,7 @@ function reset(){
     legalmove=4;
     coordinates = [[3,5],[5,3],[6,4],[4,6]];
     points = [[,1],[[3,5],[5,3],[6,4],[4,6]]];
+    document.getElementById("legal").innerHTML = "";
 }
 
 function AIsetup(){
