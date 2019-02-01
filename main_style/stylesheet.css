@@ -246,7 +246,6 @@ body{
 
 .body1{
     background-image: url(images/battleship_preview.png);
-    opacity: ;
     background-position: center;
     background-repeat: no-repeat;
 
@@ -434,18 +433,12 @@ p {
   color: #202020;
 }
 
-body {
-  
-}
 
 .red {
   color: #b91c1c;
 
 }
 
-.underline {
-
-}
 
 
 .content-section {
@@ -508,15 +501,6 @@ background-size: cover;
   -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
-
-
-
-
-
-
-
-
-
 
 
 .mb-5 {
