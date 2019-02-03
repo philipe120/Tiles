@@ -56,7 +56,7 @@ let game = {
         height: 10,
         width: 10,
         clear() {
-            $('#battlefield td').css('background-color', 'white').empty();
+            $('#battlefield td').css('background-color', 'rgb(113, 113, 243)').empty();
         },
     },
     cursor: {

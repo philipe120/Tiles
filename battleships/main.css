@@ -26,6 +26,10 @@ table {
     border-collapse: collapse;
 }
 
+td {
+    background-color: rgb(113, 113, 243);
+}
+
 #battlefield td {
     border: 1px solid black;
     width: 4.20vw;
