@@ -3,17 +3,19 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;*/
-background-image: url(images/grid.jpg);
-background-position: center;
+/*background-color: #fff;*/
+/*background-position: center;
 background-repeat: no-repeat;
-background-size: cover;
-background-position: top;
+background-size: cover;*/
+background-image:none;
+/*background-position: top;*/
 opacity: 1;
- width: 100%;
- height: 100%;
+/* width: 100%;
+ height: 100%;*/
  letter-spacing: 0.02em;
   font-weight: 400;
  -webkit-font-smoothing: antialiased;
+ transition: background-image 1s ease-in-out;
 }
 
 *{
@@ -263,14 +265,17 @@ background: none;
 }
 
 body{
-   transition: background-image 1s ease-in-out;
+  /* transition: background-image 1s ease-in-out;*/
+   -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
 }
 
 .body1{
     background-image: url(images/battleship_preview.png);
     background-position: center;
     background-repeat: no-repeat;
-
+     transition: background-image 1s ease-in-out;
     
 }
 .body2{
@@ -278,10 +283,10 @@ body{
 }
 
 .body3{
-    background-image: url(images/othello_s.png);
-
-
-    
+  background-image: url(images/othello_s.png);
+     background-position: center;
+    background-repeat: no-repeat;
+   transition: background-image 1s ease-in-out;  
 }
 .body4{
 
@@ -316,12 +321,21 @@ body{
 .section1 {
     height: 100%;
     padding-top: 35vh;
+    background-image: url(images/grid.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .section2 {
     height: 300%;
     padding-top: 15vh;
-    background-color: #75b4c5;
+   /* background-color: #75b4c5;*/
+    background-image: url(images/square_abstract2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
 
 /*blue: #75b4c5;
 pink: #eabeaf;*/
@@ -380,9 +394,13 @@ p {
   word-wrap: normal | break-word;
   margin: auto;
   width: 60%;
-  height: 70%;
+  height: 80%;
   padding-left: 10px;
   padding-right: 10px;
+  background-color: #eccece;
+  padding-top: 20px;
+/*  #75b4c5*/
+   border-radius: 25px;
 }
 
 #imageframe2{
