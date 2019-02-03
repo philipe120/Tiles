@@ -1,4 +1,4 @@
-/* globals game, grey, red */
+/* globals game, player, grey, red, black */
 
 $(document).ready(function() {
     $('#info').hide();
@@ -23,11 +23,11 @@ function initialize() {
 
     // creates 2D array representing each player's battlefield
     for (let x = 0; x < game.field.width; x++) {
-        game.player1.field.push([]);
-        game.player2.field.push([]);
+        player[1].field.push([]);
+        player[2].field.push([]);
         for (let y = game.field.height - 1; y >= 0; y--) {
-            game.player1.field[x].push(false);
-            game.player2.field[x].push(false);
+            player[1].field[x].push(false);
+            player[2].field[x].push(false);
         }
     }
 
@@ -88,7 +88,9 @@ function placement(x, y) {
             // 'cursor': 'default',
         });
         $('[selected]').each(function() {
-            game[`player${game.currentPlayer}`].field[$(this).attr('data-x')][$(this).attr('data-y')] = game.listShips[game.iterateShips];
+            let [x, y] = [parseInt($(this).attr('data-x')), parseInt($(this).attr('data-y')),];
+            player[game.currentPlayer].fleet[game.listShips[game.iterateShips]].hitboxes.push([x, y,]);
+            player[game.currentPlayer].field[x][y] = game.listShips[game.iterateShips];
         });
         game.iterateShips++;
     } else {
@@ -103,11 +105,11 @@ function placement(x, y) {
         game.field.clear();
         game.iterateShips = 0;
         $('#info p').empty();
-        if (game.player2.isHuman && game.currentPlayer == 1) {
+        if (player[2].isHuman && game.currentPlayer == 1) {
             game.cursor.direction = 'vertical';
             game.currentPlayer = 2;
             $('#info-main').text(`Player ${game.currentPlayer}, place your ships!`);
-        } else if (game.currentPlayer == 2) {
+        } else {
             game.cursor.action = 'aiming';
             game.currentPlayer = 1;
             $('#info-main').text(`Player ${game.currentPlayer}, fire!`);
@@ -117,9 +119,9 @@ function placement(x, y) {
     }
 }
 
-function loadField(player) {
+function loadField(p) {
     game.field.clear();
-    for (const [x, row] of game[`player${player}`].field.entries()) {
+    for (const [x, row] of player[p].field.entries()) {
         for (const [y, cell] of row.entries()) {
             let $cell = $(`[data-x=${x}][data-y=${y}]`);
             switch (cell) {
@@ -128,6 +130,9 @@ function loadField(player) {
                     break;
                 case 'miss':
                     $cell.text('miss');
+                    break;
+                case 'destroyed':
+                    $cell.text('X').css('background-color', black);
                     break;
             }
         }
@@ -138,26 +143,33 @@ function shoot(x, y) {
     const $targetCell = $(`[data-x=${x}][data-y=${y}]`);
     if ($targetCell.css('background-color') != red && $targetCell.text() != 'miss') {
         $('#info-small').css('color', 'black');
-        let targetData = game[`player${game.targetPlayer}`].field[x][y];
+        let targetData = player[game.targetPlayer].field[x][y];
+        // if shot lands on a ship
         if (targetData) {
-            // if shot lands on a ship
-            game[`player${game.targetPlayer}`].field[x][y] = 'hit';
-            $targetCell.css('background-color', red);
-            $('#info-small').text("Enemy ship hit!");
-            game[`player${game.targetPlayer}`].fleet[targetData]--;
-            if(game[`player${game.targetPlayer}`].fleet[targetData] == 0) {
-                delete game[`player${game.targetPlayer}`].fleet[targetData];
+            player[game.targetPlayer].fleet[targetData].health--;
+            // if shot sinks a ship
+            if (player[game.targetPlayer].fleet[targetData].health == 0) {
+                for (let [hitX, hitY] of player[game.targetPlayer].fleet[targetData].hitboxes) {
+                    player[game.targetPlayer].field[hitX][hitY] = 'destroyed';
+                    $(`[data-x=${hitX}][data-y=${hitY}]`).css('background-color', black);
+                }
+                delete player[game.targetPlayer].fleet[targetData];
                 $('#reports').append(`<p>Player ${game.targetPlayer}'s ${targetData} has been sunk!<p>`);
                 // if last ship is destroyed
-                if (Object.keys(game[`player${game.targetPlayer}`].fleet).length == 0) {
+                if (Object.keys(player[game.targetPlayer].fleet).length == 0) {
                     game.end = true;
                     return false;
                 }
+            // if shot does not sink a ship
+            } else {
+                player[game.targetPlayer].field[x][y] = 'hit';
+                $targetCell.css('background-color', red);
+                $('#info-small').text("Enemy ship hit!");
             }
         } else {
             // if shot lands in water
             $targetCell.text("miss");
-            game[`player${game.targetPlayer}`].field[x][y] = 'miss';
+            player[game.targetPlayer].field[x][y] = 'miss';
             $('#info-small').text("Shot lands harmlessly into the ocean...");
         }
         return true;

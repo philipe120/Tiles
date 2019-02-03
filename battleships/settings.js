@@ -1,5 +1,6 @@
 const grey = "rgb(128, 128, 128)";
 const red = "rgb(255, 0, 0)";
+const black = "rgb(0, 0, 0)";
 
 let game = {
     end: false,
@@ -27,30 +28,6 @@ let game = {
         destroyer: {
             length: 2,
         },
-    },
-    player1: {
-        name: "",
-        isHuman: true, // should always be true
-        field: [],
-        fleet: {
-            carrier: 5,
-            battleship: 4,
-            cruiser: 3,
-            submarine: 3,
-            destroyer: 2,
-        },
-    },
-    player2: {
-        name: "",
-        isHuman: true,
-        field: [],
-        fleet: {
-            carrier: 5,
-            battleship: 4,
-            cruiser: 3,
-            submarine: 3,
-            destroyer: 2,
-        }
     },
     field: {
         height: 10,
@@ -93,6 +70,63 @@ let game = {
                     break;
             }
             return true;
+        },
+    },
+};
+
+let player = {
+    1: {
+        name: "",
+        isHuman: true, // should always be true
+        field: [],
+        fleet: {
+            carrier: {
+                health: 5,
+                hitboxes: [],
+            },
+            battleship: {
+                health: 4,
+                hitboxes: [],
+            },
+            cruiser: {
+                health: 3,
+                hitboxes: [],
+            },
+            submarine: {
+                health: 3,
+                hitboxes: [],
+            },
+            destroyer: {
+                health: 2,
+                hitboxes: [],
+            },
+        },
+    },
+    2: {
+        name: "",
+        isHuman: true,
+        field: [],
+        fleet: {
+            carrier: {
+                health: 5,
+                hitboxes: [],
+            },
+            battleship: {
+                health: 4,
+                hitboxes: [],
+            },
+            cruiser: {
+                health: 3,
+                hitboxes: [],
+            },
+            submarine: {
+                health: 3,
+                hitboxes: [],
+            },
+            destroyer: {
+                health: 2,
+                hitboxes: [],
+            },
         },
     },
 };
