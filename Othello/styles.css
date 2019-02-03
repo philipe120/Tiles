@@ -2,6 +2,11 @@ table{
 	border-spacing: 0px;
 }
 
+body {
+	text-align: center;
+}
+
+
 td{
 	border: 1px solid #222222;
 	padding: 0px;
@@ -35,7 +40,7 @@ table.test tr td:last-child {
 
 
 td.grey{
-    background-color : #999999 ;
+    background-color : #50a247 ;
 }
 
 td.white{
@@ -43,7 +48,7 @@ td.white{
 }
 
 td.black{
-	background-color : #000000;
+	background-color : #464141;
 }
 
 td.black_hover{
@@ -59,6 +64,6 @@ td.panic{
 }
 
 div.button{
-	margin: 5px;
+	margin: 10px;
 	text-align: center;
 }
