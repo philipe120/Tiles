@@ -1,4 +1,4 @@
-const grey = "rgb(128, 128, 128)";
+const grey = "rgb(92, 92, 92)";
 const red = "rgb(255, 0, 0)";
 const black = "rgb(0, 0, 0)";
 

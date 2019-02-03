@@ -32,8 +32,33 @@ td {
 
 #battlefield td {
     border: 1px solid black;
-    width: 4.20vw;
-    height: 4.20vw;
+    width: 8vw;
+    height: 8vw;
     cursor: crosshair;
     text-align: center;
+}
+
+#reports {
+    background-color: grey;
+    padding: 2vw;
+    margin-top: 1em;
+}
+
+#reports h3 {
+    margin-bottom: 1em;
+}
+
+#reports p {
+    font-family: Consolas;
+}
+
+@media (min-width: 992px) {
+    #reports {
+        left: -15%;
+        margin-top: 0;
+    }
+    #battlefield td {
+        width: 4.20vw;
+        height: 4.20vw;
+    }
 }
