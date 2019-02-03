@@ -49,7 +49,6 @@ function initialize() {
 }
 
 function clickDetect() {
-    console.log("Click found at " + $(this).attr('data-x') + "," + $(this).attr('data-y'));
     switch (game.cursor.action) {
         case 'placing':
             if (typeof game.iterateShips === 'undefined') game.iterateShips = 0;
@@ -69,11 +68,11 @@ function clickDetect() {
             if (game.end) {
                 game.cursor.action = false;
                 $('#info-main').text(`PLAYER ${game.currentPlayer} wins!`);
-                $('#info-small').text(`The final ship of player ${game.currentPlayer}'s has been sunk!`);
+                $('#info-small').text(`The final ship of player ${game.targetPlayer}'s has been sunk!`);
                 $('#reports').append(`Player ${game.currentPlayer} is victorious!`);
                 setTimeout(function() {
                     location.reload();
-                }, 2000);
+                }, 5000);
             }
             break;
     }
@@ -86,12 +85,11 @@ function placement(x, y) {
         // BUG NOTICE: 2nd player can see where player 1 placed ships due to changed cursor
         $('[selected]').css({
             'background-color': grey,
-            'cursor': 'default',
+            // 'cursor': 'default',
         });
         $('[selected]').each(function() {
             game[`player${game.currentPlayer}`].field[$(this).attr('data-x')][$(this).attr('data-y')] = game.listShips[game.iterateShips];
         });
-        console.log(`${game.listShips[game.iterateShips]} placed!`);
         game.iterateShips++;
     } else {
         // if selected tiles are invalid, update help message
