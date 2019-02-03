@@ -8,9 +8,7 @@ function left(a, b, c) {
         line = scanline(a,y,line);
     }
 
-    let num = calculatearray(line, c);
-
-    if (num == true){
+    if (calculatearray(line, c)){
         for (let y = b; y >= 1; y--) {
             let element = document.getElementById(`row${a},column${y}`).className;
             if (element == cword(c)) {
@@ -25,14 +23,12 @@ function left(a, b, c) {
 
 function right(a, b, c) {
     let line = [];
-    for (let y = b; y <= 8; y++) {
+    for (let y = b;y <= 8;y++) {
         line = scanline(a,y,line);
     }
 
-    let num = calculatearray(line, c);
-
-    if (num == true){
-        for (let y = b; y <= 8; y++) {
+    if (calculatearray(line, c)){
+        for (let y = b;y <= 8;y++) {
             let element = document.getElementById(`row${a},column${y}`).className;
             if (element == cword(c)) {
                 break;
@@ -45,15 +41,13 @@ function right(a, b, c) {
 }
 
 function up(a,b,c){
-    line=[];
-    for (x=a;x>=1;x--){
+    let line=[];
+    for (let x = a;x >= 1;x--){
         line = scanline(x,b,line);
     }
 
-    let num = calculatearray(line, c);
-
-    if (num == true){
-        for (x=a;x>=1;x--){
+    if (calculatearray(line, c)){
+        for (let x = a;x >= 1; x--){
             let element = document.getElementById(`row${x},column${b}`).className;
             if (element == cword(c)) {
                 break;
@@ -66,15 +60,13 @@ function up(a,b,c){
 }
 
 function down(a,b,c){
-    line=[];
-    for (x=a;x<=8;x++){
+    let line=[];
+    for (let x = a;x <= 8;x++){
         line = scanline(x,b,line);
     }
 
-    let num = calculatearray(line, c);
-
-    if (num == true){
-        for (x=a;x<=8;x++){
+    if (calculatearray(line, c)){
+        for (let x = a;x <= 8;x++){
             let element = document.getElementById(`row${x},column${b}`).className;
             if (element == cword(c)) {
                 break;
@@ -96,9 +88,7 @@ function upleft(a, b, c) {
         }
     }
 
-    let num = calculatearray(line, c);
-    
-    if (num == true){
+    if (calculatearray(line, c)){
         breakloop:
         for (let x = a;x >= 1;x--){
             for (let y = b; y >= 1; y--) {
@@ -126,9 +116,7 @@ function upright(a, b, c) {
         }
     }
 
-    let num = calculatearray(line, c);
-    
-    if (num == true){
+    if (calculatearray(line, c)){
         breakloop:
         for (let x = a;x >= 1;x--){
             for (let y = b; y <= 8; y++) {
@@ -156,9 +144,7 @@ function downleft(a, b, c) {
         }
     }
 
-    let num = calculatearray(line, c);
-    
-    if (num == true){
+    if (calculatearray(line, c)){
         breakloop:
         for (let x = a;x <= 8;x++){
             for (let y = b; y >= 1; y--) {
@@ -185,10 +171,8 @@ function downright(a, b, c) {
             }
         }
     }
-
-    let num = calculatearray(line, c);
     
-    if (num == true){
+    if (calculatearray(line, c)){
         breakloop:
         for (let x = a;x <= 8;x++){
             for (let y = b; y <= 8; y++) {
@@ -213,9 +197,9 @@ function writeself(a, b, c) {
 
 function cword(c) {
     if (c % 2 == 1) {
-        return "white";
-    } else if (c % 2 == 0) {
         return "black";
+    } else if (c % 2 == 0) {
+        return "white";
     } else {
         return "panic";
     }
@@ -244,7 +228,6 @@ function calculatearray(line, c) {
     }
 }
 
-
 function scanline(j,k,line){
     let element = document.getElementById(`row${j},column${k}`);
     element.classList.remove("white_hover");
@@ -252,8 +235,3 @@ function scanline(j,k,line){
     line.push(element.className);
     return line;
 }
-
-// function printline(){
-
-
-// }
