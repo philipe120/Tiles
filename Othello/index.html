@@ -8,22 +8,28 @@
     <meta name="author" content="Tiles">
 
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script type="text/javascript" src="function.js"></script>
-    <script type="text/javascript" src="mechanics.js"></script>
-    <script type="text/javascript" src="check.js"></script>
-    <script type="text/javascript" src="extra.js"></script>
+    <script type="text/javascript" src="core/function.js"></script>
+    <script type="text/javascript" src="core/mechanics.js"></script>
+    <script type="text/javascript" src="singleplayer/check.js"></script>
+    <script type="text/javascript" src="singleplayer/extra.js"></script>
+    <script type="text/javascript" src="singleplayer/advanced_moves.js"></script>
+    <script type="text/javascript" src="singleplayer/advanced_moves/adv_check.js"></script>
+    <script type="text/javascript" src="singleplayer/advanced_moves/adv_mechanics.js"></script>
 
     <title>Tiles — Othello</title>
 
-    <!-- website favicon (tab icon) -->
-    <link rel="shortcut icon" type="image/png" href="#"/>
+    <link rel="shortcut icon" type="image/png" href="../assets/img/logo_small_square.png"/>
 </head>
 
 <body>
     <!-- game grid -->
-    <div id="demo" onclick="start()">
-        <h1>Click on me to start!</h1>
+    <div id="demo" class = grid style="margin:auto">
+        <p onclick = "mode = 'easy';start()">easy</p>
+        <p onclick = "mode = 'medium';start()">medium</p>
+        <p onclick = "mode = 'hard';start()">hard</p>
     </div>
     <p id="legal"></p>
+    <!-- <button onclick = "single=false">Friend off</button>
+    <button onclick = bestmove()>Test</button> -->
 </body>
 </html>
