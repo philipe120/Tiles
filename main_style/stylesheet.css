@@ -271,27 +271,6 @@ body{
  -o-background-size: cover;
 }
 
-.body1{
-    background-image: url(images/battleship_preview.png);
-    background-position: center;
-    background-repeat: no-repeat;
-     transition: background-image 1s ease-in-out;
-    
-}
-.body2{
-
-}
-
-.body3{
-  background-image: url(images/othello_s.png);
-     background-position: center;
-    background-repeat: no-repeat;
-   transition: background-image 1s ease-in-out;  
-}
-.body4{
-
-}
-
 .mid{
 /*  left: 0;
     line-height: 200px;
@@ -316,6 +295,10 @@ body{
 
 #box {
   background-color: lightgray;
+}
+
+#s1 {
+  transition: background-image 1s ease-in-out;
 }
 
 .section1 {

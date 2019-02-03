@@ -8,18 +8,29 @@
     <link href="stylesheet.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/logo_small_square.png">
 
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js.map"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
     <script>
-    function firstan(){
-        var bbc = document.body.className;
-        document.body.className = bbc == 'body1' ? 'section1' : 'body1'
-    }
+    $(document).ready(function() {
+      $('#battleships')
+      .mouseenter(function() {
+        $('#s1').css('background-image', 'url(images/battleship_preview.png)');
+      })
+      .mouseleave(function() {
+        $('#s1').css('background-image', '');
+      });
 
-     function secondan(){
-        var yyc = document.body.className;
-        document.body.className = yyc == 'body3' ? 'section1' : 'body3'
-    }
-
+      $('#othello')
+      .mouseenter(function() {
+        $('#s1').css('background-image', 'url(images/othello_s.png)');
+      })
+      .mouseleave(function() {
+        $('#s1').css('background-image', '');
+      });
+    });
     </script>
     <script>
       
@@ -79,7 +90,7 @@ btn.addEventListener('mouseleave', () => {
 </header>
 
 <!-- Text on first page -->
-<div class="section1" id="1">
+<div class="section1" id="s1">
 <div class="mid">
 <h2 id="font_title">Developer Project</h2>
 <h3 id="font_title">Tiles</h3>
@@ -90,7 +101,7 @@ btn.addEventListener('mouseleave', () => {
 
 <div class="left">
   <div class="bot">
-     <div class="button" onmouseover="firstan()" onmouseout="firstan()">
+     <div id="battleships" class="button">
   <!--  <form action="../Othello/index.html">  
     <button id="buttonText" onmouseover="firstan()" onmouseout="firstan()">Othello </button>     
     </form>   -->
@@ -105,7 +116,7 @@ btn.addEventListener('mouseleave', () => {
 
 <div class="right">  
   <div class="bot"> 
-    <div class="button" onmouseover="secondan()" onmouseout="secondan()">
+    <div id="othello" class="button">
     <!-- <form action="../battleships/index.html">   
     <button id="buttonText" onmouseover="secondan()" onmouseout="secondan()">Battleships</button>
     </form>    -->
@@ -196,12 +207,6 @@ btn.addEventListener('mouseleave', () => {
     </div>
 </div>
 </div>
-
-
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.bundle.min.js.map"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 </body>
 
