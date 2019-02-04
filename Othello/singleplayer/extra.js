@@ -1,12 +1,20 @@
 var myvar;
 
 function automove(){
-    myvar = setInterval(friend,1000)
+    single = false;
+
+    myvar = setInterval(function (){
+        let randomA = Math.floor((Math.random() * 8)+1);
+        let randomB = Math.floor((Math.random() * 8)+1);
+        AImoved = true;
+        mouseclick(randomA,randomB);
+    },Math.floor((Math.random() * 100)+10));
     document.getElementById("automove").onclick = function(){stopmove()};
     document.getElementById("automove").innerHTML = "Stop Move";
 }
 
 function stopmove(){
+    single = true;
     clearInterval(myvar);
     document.getElementById("automove").onclick = function(){automove()};
     document.getElementById("automove").innerHTML = "Auto Move";
@@ -21,6 +29,7 @@ function reset(){
     coordinates = [[3,5],[5,3],[6,4],[4,6]];
     points = [[,1],[[3,5],[5,3],[6,4],[4,6]]];
     document.getElementById("legal").innerHTML = "";
+    single = true;
 }
 
 function AIsetup(){
