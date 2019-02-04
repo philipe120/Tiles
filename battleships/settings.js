@@ -14,7 +14,7 @@ let game = {
     end: false,
     currentPlayer: 1, // 1 or 2
     get targetPlayer() {
-        return game.currentPlayer == 1 ? 2 : 1;
+        return !(game.currentPlayer - 1) + 1;
     },
     ships: getShipsGenerator(),
     field: {
