@@ -1,4 +1,4 @@
-/* globals game, player, grey, red, black */
+/* globals game, player, grey, red, black, getShipsGenerator */
 
 $(document).ready(function() {
     $('#info').hide();
@@ -45,17 +45,18 @@ function initialize() {
     // start placement of ships
     game.cursor.action = 'placing';
     game.currentPlayer = 1;
+    game.currentShip = game.ships.next().value;
     $('#info-main').text(`Player ${game.currentPlayer}, place your ships!`);
 }
 
 function clickDetect() {
     switch (game.cursor.action) {
         case 'placing':
-            if (typeof game.iterateShips === 'undefined') game.iterateShips = 0;
-            placement(parseInt($(this).attr('data-x')), parseInt($(this).attr('data-y')));
+            placement(x, y, game.currentShip, game.cursor.direction);
             break;
         case 'aiming':
-            if (shoot(parseInt($(this).attr('data-x')), parseInt($(this).attr('data-y')))) {
+            if (shoot(x, y)) {
+                if (game.currentPlayer == 2) game.turn++;
                 game.cursor.action = false;
                 setTimeout(function() {
                     game.currentPlayer = game.currentPlayer == 1 ? 2 : 1;
@@ -69,7 +70,7 @@ function clickDetect() {
                 game.cursor.action = false;
                 $('#info-main').text(`PLAYER ${game.currentPlayer} wins!`);
                 $('#info-small').text(`The final ship of player ${game.targetPlayer}'s has been sunk!`);
-                $('#reports').append(`Player ${game.currentPlayer} is victorious!`);
+                $('#reports').append(`<p>Player ${game.currentPlayer} is victorious!<p>`);
                 setTimeout(function() {
                     location.reload();
                 }, 5000);
@@ -78,21 +79,17 @@ function clickDetect() {
     }
 }
 
-function placement(x, y) {
-    if (game.cursor.isClear(x, y, game.ships[game.listShips[game.iterateShips]].length, game.cursor.direction)) {
+function placement(x, y, ship, direction) {
+    if (game.cursor.isClear(x, y, ship.length, direction)) {
         // if the selected tiles are clear, fill them and move onto placing next ship
         $('#info-small').css('color', 'black').empty();
-        // BUG NOTICE: 2nd player can see where player 1 placed ships due to changed cursor
-        $('[selected]').css({
-            'background-color': grey,
-            // 'cursor': 'default',
-        });
+        $('[selected]').css({'background-color': grey,});
         $('[selected]').each(function() {
             let [x, y] = [parseInt($(this).attr('data-x')), parseInt($(this).attr('data-y')),];
-            player[game.currentPlayer].fleet[game.listShips[game.iterateShips]].hitboxes.push([x, y,]);
-            player[game.currentPlayer].field[x][y] = game.listShips[game.iterateShips];
+            player[game.currentPlayer].fleet[ship.ship].hitboxes.push([x, y,]);
+            player[game.currentPlayer].field[x][y] = ship.ship;
         });
-        game.iterateShips++;
+        game.currentShip = game.ships.next().value;
     } else {
         // if selected tiles are invalid, update help message
         $('#info-small').css('color', 'red').text("Invalid ship position!");
@@ -101,9 +98,10 @@ function placement(x, y) {
     // deselect all tiles
     $('[selected]').attr('selected', false);
     // end placement phase after last ship is placed
-    if (game.iterateShips >= game.listShips.length) {
+    if (ship.done) {
         game.field.clear();
-        game.iterateShips = 0;
+        game.ships = getShipsGenerator();
+        game.currentShip = game.ships.next().value;
         $('#info p').empty();
         if (player[2].isHuman && game.currentPlayer == 1) {
             game.cursor.direction = 'vertical';
@@ -112,6 +110,7 @@ function placement(x, y) {
         } else {
             game.cursor.action = 'aiming';
             game.currentPlayer = 1;
+            game.turn = 1;
             $('#info-main').text(`Player ${game.currentPlayer}, fire!`);
             $('#info-small').text("Click on any empty tile to fire at your enemy's fleet!");
             loadField(2);

@@ -2,33 +2,21 @@ const grey = "rgb(92, 92, 92)";
 const red = "rgb(255, 0, 0)";
 const black = "rgb(0, 0, 0)";
 
+function* getShipsGenerator() {
+    yield { ship: 'carrier', length: 5, done: false, };
+    yield { ship: 'battleship', length: 4, done: false, };
+    yield { ship: 'cruiser', length: 3, done: false, };
+    yield { ship: 'submarine', length: 3, done: false, };
+    return { ship: 'destroyer', length: 2, done: true, };
+}
+
 let game = {
     end: false,
-    turn: 1,
     currentPlayer: 1, // 1 or 2
     get targetPlayer() {
         return game.currentPlayer == 1 ? 2 : 1;
     },
-    get listShips() {
-        return Object.keys(this.ships);
-    },
-    ships: {
-        carrier: {
-            length: 5,
-        },
-        battleship: {
-            length: 4,
-        },
-        cruiser: {
-            length: 3,
-        },
-        submarine: {
-            length: 3,
-        },
-        destroyer: {
-            length: 2,
-        },
-    },
+    ships: getShipsGenerator(),
     field: {
         height: 10,
         width: 10,
