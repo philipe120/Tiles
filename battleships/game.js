@@ -50,6 +50,8 @@ function initialize() {
 }
 
 function clickDetect() {
+    const x = parseInt($(this).attr('data-x'));
+    const y = parseInt($(this).attr('data-y'));
     switch (game.cursor.action) {
         case 'placing':
             placement(x, y, game.currentShip, game.cursor.direction);
