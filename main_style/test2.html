@@ -1,0 +1,212 @@
+<html>
+	<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css.map" rel="stylesheet">
+    <link href="stylesheet.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo_small_square.png">
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js.map"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+      $('#battleships')
+      .mouseenter(function() {
+        $('#s1').css('background-image', 'url(images/battleship_preview.png)');
+      })
+      .mouseleave(function() {
+        $('#s1').css('background-image', '');
+      });
+
+      $('#othello')
+      .mouseenter(function() {
+        $('#s1').css('background-image', 'url(images/othello_s2.png)');
+      })
+      .mouseleave(function() {
+        $('#s1').css('background-image', '');
+      });
+    });
+    </script>
+   <!--  <script>
+      
+      $('.nav').click(function() {
+    var id = $(this).attr('id');
+    $('html, body').animate({
+        scrollTop: ($('#' + id + '.section').offset().top)
+    }, 1000);
+});
+    </script> -->
+    <script>
+      const body = document.body;
+const btn = document.querySelectorAll('.button')[0];
+
+btn.addEventListener('mouseenter', () => {
+  body.classList.add('show');
+});
+
+btn.addEventListener('mouseleave', () => {
+  body.classList.remove('show');
+});
+    </script>  
+	</head>	
+
+ <style>
+
+</style>
+
+
+<body>
+
+<header>
+<nav class="navbar navbar-dark fixed-top navbar-expand-md navbar-no-bg">
+    <div class="container">
+        <a class="navbar-brand" href="test2.html"><img src="images/logo_full.png" class="img-responsive"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Games
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="../battleships/index.html">Battleship</a>
+                    <a class="dropdown-item" href="../Othello/index.html">Othello</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link scroll-link" href="#top-content">Login</a>
+                </li>  
+            </ul>
+        </div>
+      </div>
+</nav>
+</header>
+
+<!-- Text on first page -->
+<div class="section1" id="s1">
+<div class="mid">
+<h2 id="font_title">Developer Project</h2>
+<h3 id="font_title">Tiles</h3>
+</div>
+
+
+
+
+<div class="left">
+  <div class="bot">
+     <div id="battleships" class="button">
+  <!--  <form action="../Othello/index.html">  
+    <button id="buttonText" onmouseover="firstan()" onmouseout="firstan()">Othello </button>     
+    </form>   -->
+  <a href="../battleships/index.html">
+    Battleships
+    <span class="move">›</span>
+  </a>
+  <div class="cover"></div>
+     </div>
+  </div>
+</div>
+
+<div class="right">  
+  <div class="bot"> 
+    <div id="othello" class="button">
+    <!-- <form action="../battleships/index.html">   
+    <button id="buttonText" onmouseover="secondan()" onmouseout="secondan()">Battleships</button>
+    </form>    -->
+    
+  <a href="../Othello/index.html">
+    Othello
+    <span class="move">›</span>
+  </a>
+  <div class="cover"></div>
+    </div>
+  </div>  
+</div>
+</div>
+
+<div class="section2" id="2">
+
+  <div class="align">
+  <div id="font1">
+    <h1 >Introduction To Tiles</h1>
+
+    <div id="logo">
+    <img src="images/logo_small_square.png" alt="small_square" id="imageframe">
+  </div>  
+  <div id="textlimit">  
+    <p>
+    <strong class="red">Battleship
+    </strong> is an extensive mutiplayer experience challenging users to test their own expertise on a grid board strategy game. This game introduces a whole new level of dymanic gameplay and innovative thinking for people of all ages. The player have to guess the location of the second player's ships which cover a number of tiles. The object of the game is to guess all of the locations where the opponents ships are located which each player can hide containing vertical and horizontal space coordinates.
+    </p>
+    <img src="images/Battleship.png" id="imageframe2">
+    <p>
+    <strong class="red">Othello 
+    </strong> is a strategic board game made for two players usually played on an 8 by 8 square tiles. This game challenges users to think outside of the box, finding new innovative strategies and techniques to win. The object of the game is to have majority of the squares turned over on the player's color when the last playable square that is empty, becomes filled. Players will be taking turns picking squares to place a color in attempt to flip enough squares to their own same color. 
+    </p>  
+    <img src="images/Othello.png" id="imageframe2">
+  </div>  
+  </div>
+  </div>  
+</div>
+
+
+
+<div class="section3" id="3">
+<div class="square">
+<div class="content-section text-center">
+      <div class="container">
+        <div class="mid">
+          <div>
+          <h2 class="mb-5">
+          <strong>About Us</strong></h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+            <span class="icon rounded-circle mx-auto mb-3">
+            </span>
+            <h4>
+              <strong class="textfont">Daniel</strong>
+            </h4>
+            <h5>
+              Developer Type: Front-end Othello
+            </h5>  
+            <p class="textfaded mb-0"></p>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+            <span class="icon2 rounded-circle mx-auto mb-3">
+            </span>
+            <h4>
+              <strong class="textfont">Philip</strong>
+            </h4>
+            <h5>
+              Developer Type: Front-end 
+            </h5>  
+            <p class="textfaded mb-0"></p>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-5 mb-md-0">
+            <span class="icon3 rounded-circle mx-auto mb-3">
+            </span>
+            <h4>
+              <strong class="textfont">Wilson</strong>
+            </h4>
+            <h5>
+              Developer Type: Front-end Battleships
+            </h5>  
+            <p class="textfaded mb-0"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+</body>
+
+</html>
