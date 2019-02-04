@@ -3,6 +3,7 @@ let turn = 1;
 let addturn = false;
 let single = true;
 let pass = 0;
+let AImoved = true;
 
 function start() {
     let grid = "<table class = 'test'><tr>";
@@ -48,6 +49,7 @@ function mouseoff(a, b) {
 }
 
 function mouseclick(a, b) {
+    if (turn%2==1 || AImoved){
 
     left(a, b, turn);
     right(a, b, turn);
@@ -60,6 +62,7 @@ function mouseclick(a, b) {
 
     if (addturn) {
         writeself(a, b, turn);
+        AImoved = false;
 
         turn++;
         scangrid(turn);
@@ -83,4 +86,6 @@ function mouseclick(a, b) {
             friend();
         }
     }
+}
+
 }

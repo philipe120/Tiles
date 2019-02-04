@@ -41,7 +41,7 @@ hard = algothim that analyse moves in advance
 
         setTimeout(() => {
             let random = Math.floor((Math.random() * coordinates.length));
-            mouseclick(coordinates[random][0],coordinates[random][1]);
+            group(coordinates[random][0],coordinates[random][1]);
         }, randomtime);
     }else if (mode == "medium"){
         sidecoordinates = [];
@@ -71,14 +71,14 @@ hard = algothim that analyse moves in advance
 
             setTimeout(() => {
                 let random = Math.floor((Math.random() * cornercoordinates.length));
-                mouseclick(cornercoordinates[random][0],cornercoordinates[random][1]);
+                group(cornercoordinates[random][0],cornercoordinates[random][1]);
             }, randomtime);
         }else if (sidecoordinates.length != 0){
             let randomtime = Math.floor((Math.random() * 2000)+1000);
 
             setTimeout(() => {
                 let random = Math.floor((Math.random() * sidecoordinates.length));
-                mouseclick(sidecoordinates[random][0],sidecoordinates[random][1]);
+                group(sidecoordinates[random][0],sidecoordinates[random][1]);
             }, randomtime);
         }else{
             let randomtime = Math.floor((Math.random() * 2000)+1000);
@@ -86,14 +86,19 @@ hard = algothim that analyse moves in advance
             setTimeout(() => {
                 if (Math.floor((Math.random()))){
                     let random = Math.floor((Math.random() * points[points.length-1].length));
-                    mouseclick(points[points.length-1][random][0],points[points.length-1][random][1]);
+                    group(points[points.length-1][random][0],points[points.length-1][random][1]);
                 }else{
                     let random = Math.floor((Math.random() * coordinates.length));
-                    mouseclick(coordinates[random][0],coordinates[random][1]);
+                    group(coordinates[random][0],coordinates[random][1]);
                 }
             }, randomtime);
         }
     }else if (mode == "hard"){
         bestmove();
     }
+}
+
+function group(a,b){
+    AImoved = true;
+    mouseclick(a,b);
 }
