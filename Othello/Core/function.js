@@ -18,7 +18,7 @@ function start() {
         }
     }
     grid += `</tr></table><div class = "button"><button id = "automove" onclick="automove()">Auto Move</button>
-    <button onclick="reset()">Reset</button></div>`;
+    <button onclick="reset()">Reset</button> <button onclick = "single=false">Friend off</button></div>`;
 
     document.getElementById("demo").innerHTML = grid;
 
@@ -51,41 +51,42 @@ function mouseoff(a, b) {
 function mouseclick(a, b) {
     if (turn%2==1 || AImoved){
 
-    left(a, b, turn);
-    right(a, b, turn);
-    up(a, b, turn);
-    down(a, b, turn);
-    upleft(a, b, turn);
-    upright(a, b, turn);
-    downleft(a, b, turn);
-    downright(a, b, turn);
+        left(a, b, turn);
+        right(a, b, turn);
+        up(a, b, turn);
+        down(a, b, turn);
+        upleft(a, b, turn);
+        upright(a, b, turn);
+        downleft(a, b, turn);
+        downright(a, b, turn);
 
-    if (addturn) {
-        writeself(a, b, turn);
-        AImoved = false;
-
-        turn++;
-        scangrid(turn);
-        if (pass == 1){
+        if (addturn) {
+            document.getElementById("legal").innerHTML = ``;
+            writeself(a, b, turn);
+            if (single){
+                AImoved = false;
+            }
             turn++;
-            document.getElementById("legal").innerHTML = `Pass`;
             scangrid(turn);
-        }
-        addturn = false;
+            if (pass == 1){
+                turn++;
+                document.getElementById("legal").innerHTML = `Pass`;
+                scangrid(turn);
+            }
+            addturn = false;
 
-        if (turn == "end"){
-            winner = countgrid();
-            if (winner != "Tie"){
-                document.getElementById("legal").innerHTML = `${winner} wins!`;
-            }else{
-                document.getElementById("legal").innerHTML = `It is a tie!`;
+            if (turn == "end"){
+                winner = countgrid();
+                if (winner != "Tie"){
+                    document.getElementById("legal").innerHTML = `${winner} wins!`;
+                }else{
+                    document.getElementById("legal").innerHTML = `It is a tie!`;
+                }
+            }
+
+            if (turn%2==0 && single){
+                friend();
             }
         }
-
-        if (turn%2==0 && single){
-            friend();
-        }
     }
-}
-
 }

@@ -136,7 +136,7 @@ function upright(a, b, c) {
 
 function downleft(a, b, c) {
     let line = [];
-    for (let x = a;x <= 8;x++){
+    for (let x = a; x <= 8; x++){
         for (let y = b; y >= 1; y--) {
             if (a+b == x+y){
                 line = scanline(x,y,line);

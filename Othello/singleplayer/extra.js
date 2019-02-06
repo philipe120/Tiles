@@ -103,7 +103,12 @@ hard = algothim that analyse moves in advance
             }, randomtime);
         }
     }else if (mode == "hard"){
-        bestmove();
+        let randomtime = Math.floor((Math.random() * 2000)+1000);
+        let temp = bestmove();
+        setTimeout(() => {
+            AImoved = true;
+            mouseclick(parseInt(temp[0]),parseInt(temp[1]));
+        }, randomtime);
     }
 }
 

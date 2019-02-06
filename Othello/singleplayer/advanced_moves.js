@@ -25,17 +25,10 @@ simturn = 1;
 // store stuff for hard difficulty
 
 function bestmove(){
-/*
-"think ahead" four steps, then choose most valuable move
-
-tips and trick?
-*/
-
-// we want to get pieces to be stable?
 
 simgrid_main = [];
 
-for(let j = 0; j <= 3; j++){ // number of moves forward
+for(let j = 0; j <= 4; j++){ // number of moves forward
     let simturn = j+turn;
 
     if(j == 0){
@@ -94,17 +87,17 @@ for(let j = 0; j <= 3; j++){ // number of moves forward
                                 simcoordinates_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`] = {};
                                 simpoints_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`] = {};
 
-                                for (let n = 0; n < simcoordinates_main[j-1][`${x},${y}`][`${a},${b}`][`${c},${d}`].length; n++){
+                                // for (let n = 0; n < simcoordinates_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`].length; n++){
 
-                                    let e = simcoordinates_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`][n][0];
-                                    let f = simcoordinates_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`][n][1];
+                                //     let e = simcoordinates_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`][n][0];
+                                //     let f = simcoordinates_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`][n][1];
 
-                                    if (j == 4){
-                                        let grid = JSON.parse(JSON.stringify(simgrid_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`]));
-                                        simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`] = click_simgrid(e, f, simturn-1, grid);
-                                        [simcoordinates_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`],simpoints_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`]] = analyse_simgrid(simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`], simturn);
-                                    }
-                                }
+                                //     if (j == 4){
+                                //         let grid = JSON.parse(JSON.stringify(simgrid_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`]));
+                                //         simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`] = click_simgrid(e, f, simturn-1, grid);
+                                //         [simcoordinates_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`],simpoints_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`]] = analyse_simgrid(simgrid_main[j][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`], simturn);
+                                //     }
+                                // }
                             }
                         }
                     }
@@ -113,18 +106,7 @@ for(let j = 0; j <= 3; j++){ // number of moves forward
         }
     }
 }
-
-console.log(simgrid_main);
-console.log(simcoordinates_main);
-console.log(simpoints_main);
-
-
-
-
-
-// console.log(analyse_simgrid(simgrid,turn));
-
-// click_simgrid(a, b, turn);
+return addpoints(JSON.parse(JSON.stringify(simpoints_main)));
 }
 
 function create_simgrid(){
@@ -139,4 +121,54 @@ function create_simgrid(){
         }
     }    
     return simgrid;
+}
+
+function addpoints(points){
+    points[0] = {};
+
+    for(let k = 0; k < simcoordinates_main[0].length; k++){
+        let x = simcoordinates_main[0][k][0];
+        let y = simcoordinates_main[0][k][1];
+        points[0][`${x},${y}`] = 0;
+
+        points[0][`${x},${y}`] -= points[1][`${x},${y}`];
+
+        for (let l = 0; l < simcoordinates_main[1][`${x},${y}`].length; l++){
+            let a = simcoordinates_main[1][`${x},${y}`][l][0];
+            let b = simcoordinates_main[1][`${x},${y}`][l][1];
+
+            points[0][`${x},${y}`] += points[2][`${x},${y}`][`${a},${b}`];
+
+            for (let m = 0; m < simcoordinates_main[2][`${x},${y}`][`${a},${b}`].length; m++){  
+                let c = simcoordinates_main[2][`${x},${y}`][`${a},${b}`][m][0];
+                let d = simcoordinates_main[2][`${x},${y}`][`${a},${b}`][m][1];
+
+                points[0][`${x},${y}`] -= points[3][`${x},${y}`][`${a},${b}`][`${c},${d}`];
+
+                // for (let n = 0; n < simcoordinates_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`].length; n++){
+                //     let e = simcoordinates_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`][n][0];
+                //     let f = simcoordinates_main[3][`${x},${y}`][`${a},${b}`][`${c},${d}`][n][1];
+
+                //     points[0][`${x},${y}`] += points[4][`${x},${y}`][`${a},${b}`][`${c},${d}`][`${e},${f}`];
+
+                // }
+            }
+        }
+    }
+
+    let arr = Object.values(points[0]);
+    let max = Math.max(...arr);
+    let value = max;
+
+    let temp = getKeyByValue(points[0],value)
+
+    let a = temp[0];
+    let b = temp[2];
+
+
+    return [a,b];
+}
+
+function getKeyByValue(object, value) {
+    return Object.keys(object).find(key => object[key] === value);
 }

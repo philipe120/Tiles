@@ -207,22 +207,30 @@ function analyse_simgrid(simgrid, c){
                 }
             }
             // check if end or skip. If yes, check the points
-
-            sim_tilevalue += legalmove;
-
-
-
-
-            // sim_tilevalue = bonuspoints(a,b,c);
+            if (legalmove > 0){
+                if (c > 58){
+                    sim_tilevalue *= 10;
+                }else{
+                    sim_tilevalue += legalmove;
+                    sim_tilevalue += bonuspoints(a,b);
+                }
+            }
             // set sim_tilevalue to coordinates
         }
     }
     return [simcoordinates,sim_tilevalue];
 }
 
-function bonuspoints(a,b,c){
+function bonuspoints(a,b){
+    let value = 0;
+    let thing = [1,8];
 
-    // check other point factors
-    // includes()
-    return sim_tilevalue;
+    if(thing.includes(a) && thing.includes(b)){
+        value += 40;
+    }else if(thing.includes(a) || thing.includes(b)){
+        value += 10;
+    }
+    
+
+    return value;
 }
